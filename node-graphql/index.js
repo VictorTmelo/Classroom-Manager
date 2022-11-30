@@ -1,6 +1,123 @@
 const { ApolloServer, gql } = require("apollo-server");
 const uuid = require("uuid/v4");
-const db = require("../database.json");
+const fs = require("fs");
+let data = fs.readFileSync("database.json");
+// let data2 = fs.readFileSync("getDisciplinaAlunos1.json");
+var db = JSON.parse(data);
+
+console.log(db)
+
+// var db1 = JSON.parse(data2);
+
+// console.log(db1)
+
+// const getAlunosDisciplina = () => {
+//   for(let i = 0; i < db.DisciplinasAlunos.length; i++){
+//     let idAlunos = []
+//     for(let j = 0; j < db.DisciplinasAlunos[i].idAluno.length; j++){
+//       const foundAluno = db.Alunos.find(aluno => aluno.matricula === db.DisciplinasAlunos[i].idAluno[j])
+//       idAlunos.push(foundAluno)
+//     }
+//     console.log("Alunos encontrados na disciplina " + `${i}`, idAlunos)
+//     return idAlunos[i]
+//   }
+// }
+
+const getAlunosDisciplina1 = () => {
+
+  if(db.DisciplinasAlunos[0]){
+    let idAlunos = []
+    for(let i = 0; i < db.DisciplinasAlunos[0].idAluno.length; i++){
+      const foundAluno = db.Alunos.find(aluno => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i])
+      idAlunos.push(foundAluno)
+    }
+    return idAlunos
+  }
+}
+
+const getAlunosDisciplina2 = () => {
+  if(db.DisciplinasAlunos[1]){
+    let idAlunos = []
+    for(let i = 0; i < db.DisciplinasAlunos[1].idAluno.length; i++){
+      const foundAluno = db.Alunos.find(aluno => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i])
+      idAlunos.push(foundAluno)
+    }
+    return idAlunos
+  }
+}
+
+const getAlunosDisciplina3 = () => {
+  if(db.DisciplinasAlunos[2]){
+    let idAlunos = []
+    for(let i = 0; i < db.DisciplinasAlunos[2].idAluno.length; i++){
+      const foundAluno = db.Alunos.find(aluno => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i])
+      idAlunos.push(foundAluno)
+    }
+    return idAlunos
+  }
+}
+
+const getAlunosDisciplina4 = () => {
+  if(db.DisciplinasAlunos[3]){
+    let idAlunos = []
+    for(let i = 0; i < db.DisciplinasAlunos[3].idAluno.length; i++){
+      const foundAluno = db.Alunos.find(aluno => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i])
+      idAlunos.push(foundAluno)
+    }
+    return idAlunos
+  }
+}
+
+const getAlunosDisciplina5 = () => {
+  if(db.DisciplinasAlunos[4]){
+    let idAlunos = []
+    for(let i = 0; i < db.DisciplinasAlunos[4].idAluno.length; i++){
+      const foundAluno = db.Alunos.find(aluno => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i])
+      idAlunos.push(foundAluno)
+    }
+    return idAlunos
+  }
+}
+
+const getAlunosDisciplina6 = () => {
+  if(db.DisciplinasAlunos[5]){
+    let idAlunos = []
+    for(let i = 0; i < db.DisciplinasAlunos[5].idAluno.length; i++){
+      const foundAluno = db.Alunos.find(aluno => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i])
+      idAlunos.push(foundAluno)
+    }
+    return idAlunos
+  }
+}
+
+let db1 = getAlunosDisciplina1()
+let db2 = getAlunosDisciplina2()
+let db3 = getAlunosDisciplina3()
+let db4 = getAlunosDisciplina4()
+let db5 = getAlunosDisciplina5()
+let db6 = getAlunosDisciplina6()
+
+const getDisciplinasAluno1 = () => {
+  if(db.DisciplinasAlunos[0]){
+    let idAlunos = []
+    for(let i = 0; i < db.DisciplinasAlunos[5].idAluno.length; i++){
+      const foundAluno = db.Alunos.find(aluno => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i])
+      idAlunos.push(foundAluno)
+    }
+    return idAlunos
+  }
+}
+
+const getDisciplinasAluno2 = () => {
+  if(db.DisciplinasAlunos[1]){
+    let idAlunos = []
+    for(let i = 0; i < db.DisciplinasAlunos[5].idAluno.length; i++){
+      const foundAluno = db.Alunos.find(aluno => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i])
+      idAlunos.push(foundAluno)
+    }
+    return idAlunos
+  }
+}
 
 const typeDefs = gql`
 
@@ -40,6 +157,48 @@ const typeDefs = gql`
 
   }
 
+  type GetDisciplinaAlunos1 {
+
+    nome: String!
+    matricula: String!
+
+  }
+
+  type GetDisciplinaAlunos2 {
+
+    nome: String!
+    matricula: String!
+
+  }
+
+  type GetDisciplinaAlunos3 {
+
+    nome: String!
+    matricula: String!
+
+  }
+
+  type GetDisciplinaAlunos4 {
+
+    nome: String!
+    matricula: String!
+
+  }
+
+  type GetDisciplinaAlunos5 {
+
+    nome: String!
+    matricula: String!
+
+  }
+
+  type GetDisciplinaAlunos6 {
+
+    nome: String!
+    matricula: String!
+
+  }
+
   type Query {
 
     professores: [Professores]
@@ -52,9 +211,33 @@ const typeDefs = gql`
 
     disciplinasAlunos: [DisciplinasAlunos]
 
+    getDisciplinaAlunos1: [GetDisciplinaAlunos1]
+
+    getDisciplinaAlunos2: [GetDisciplinaAlunos2]
+
+    getDisciplinaAlunos3: [GetDisciplinaAlunos3]
+
+    getDisciplinaAlunos4: [GetDisciplinaAlunos4]
+
+    getDisciplinaAlunos5: [GetDisciplinaAlunos5]
+
+    getDisciplinaAlunos6: [GetDisciplinaAlunos6]
+
   }
 
   type Mutation {
+
+    getDisciplinaAlunos1: GetDisciplinaAlunos1
+
+    getDisciplinaAlunos2: GetDisciplinaAlunos2
+
+    getDisciplinaAlunos3: GetDisciplinaAlunos3
+
+    getDisciplinaAlunos4: GetDisciplinaAlunos4
+
+    getDisciplinaAlunos5: GetDisciplinaAlunos5
+
+    getDisciplinaAlunos6: GetDisciplinaAlunos6
 
     addProfessor(nome: String!): Professores
     editProfessor(id: ID!, nome: String!): Professores
@@ -86,13 +269,17 @@ const typeDefs = gql`
   
 `;
 
-console.log(db)
-
 const professores = db.Professores;
 const alunos = db.Alunos;
 const disciplinas = db.Disciplinas;
 const disciplinasAlunos = db.DisciplinasAlunos;
 const disciplinasProfessores = db.DisciplinasProfessores;
+const getDisciplinaAlunos1 = db1
+const getDisciplinaAlunos2 = db2
+const getDisciplinaAlunos3 = db3
+const getDisciplinaAlunos4 = db4
+const getDisciplinaAlunos5 = db5
+const getDisciplinaAlunos6 = db6
 
 const addProfessor = (professor) => {
 
@@ -117,6 +304,12 @@ const resolvers = {
     disciplinas: () => Object.values(disciplinas),
     disciplinasProfessores: () => Object.values(disciplinasProfessores),
     disciplinasAlunos: () => Object.values(disciplinasAlunos),
+    getDisciplinaAlunos1: () => Object.values(getDisciplinaAlunos1),
+    getDisciplinaAlunos2: () => Object.values(getDisciplinaAlunos2),
+    getDisciplinaAlunos3: () => Object.values(getDisciplinaAlunos3),
+    getDisciplinaAlunos4: () => Object.values(getDisciplinaAlunos4),
+    getDisciplinaAlunos5: () => Object.values(getDisciplinaAlunos5),
+    getDisciplinaAlunos6: () => Object.values(getDisciplinaAlunos6)
 
   },
 
@@ -140,6 +333,8 @@ const resolvers = {
       delete professores[id];
       return { ok };
     },
+
+    getDisciplinaAlunos1: (parent, aluno) => {return getDisciplinaAlunos1(aluno)},
 
     addDisciplina: async (parent, disciplina) => {
       return addDisciplina(disciplina);

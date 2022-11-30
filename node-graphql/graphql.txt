@@ -1,123 +1,147 @@
 # Write your query or mutation here
 mutation CreateProfessor {
-    addProfessor(nome: "Professor.") {
-      id
-    }
+  addProfessor(nome: "Professor.") {
+    id
   }
-  
-  mutation CreateDisciplina {
-    addDisciplina(nome: "Disciplina", horario: "Horario") {
-      id
-    }
+}
+
+mutation CreateDisciplina {
+  addDisciplina(nome: "Disciplina", horario: "Horario") {
+    id
   }
-  
-  mutation CreateAluno {
-    addAluno(nome: "Aluno", matricula: "12345678") {
-      matricula
-    }
+}
+
+mutation CreateAluno {
+  addAluno(nome: "Aluno", matricula: "12345678") {
+    matricula
   }
-  
-  mutation CreateDisciplinasProfessor {
-    addDisciplinasProfessor(idDisciplina: "123", idProfessor: "123") {
-      idDisciplina
-    }
+}
+
+mutation CreateDisciplinasProfessor {
+  addDisciplinasProfessor(idDisciplina: "123", idProfessor: "123") {
+    idDisciplina
   }
-  
-  mutation CreateDisciplinasAluno {
-    addDisciplinasAluno(idDisciplina: "123", idAluno: "123") {
-      idDisciplina
-    }
+}
+
+mutation CreateDisciplinasAluno {
+  addDisciplinasAluno(idDisciplina: "123", idAluno: "123") {
+    idDisciplina
   }
-  
-  query Read {
-    professores {
-      nome
-    }
-    alunos {
-      nome
-      matricula
-    }
-    disciplinas {
-      id
-      nome
-      horario
-    }
-    disciplinasProfessores {
-      idDisciplina
-      idProfessor
-    }
-    disciplinasAlunos {
-      idDisciplina
-      idAluno
-    }
+}
+
+query Read {
+  professores {
+    id
+    nome
   }
-  
-  mutation UpdateProfessor($id: ID!, $nome: String!) {
-    editProfessor(id: $id, nome: $nome) {
-      id
-      nome
-    }
+  alunos {
+    nome
+    matricula
   }
-  
-  mutation UpdateDisciplina($id: ID!, $nome: String!, $horario: String!) {
-    editDisciplina(id: $id, nome: $nome, horario: $horario) {
-      id
-      nome
-      horario
-    }
+  disciplinas {
+    id
+    nome
+    horario
   }
-  
-  mutation UpdateAluno($nome: String!, $matricula: String!) {
-    editAluno(nome: $nome, matricula: $matricula) {
-      nome
-      matricula
-    }
+  disciplinasProfessores {
+    idDisciplina
+    idProfessor
   }
-  
-  mutation UpdateDisciplinasProfessor($idDisciplina: ID!, $idProfessor: String!) {
-    editDisciplinasProfessor(
-      idDisciplina: $idDisciplina
-      idProfessor: $idProfessor
-    ) {
-      idDisciplina
-      idProfessor
-    }
+  disciplinasAlunos {
+    idDisciplina
+    idAluno
   }
-  
-  mutation UpdateDisciplinasAluno($idDisciplina: ID!, $idAluno: String!) {
-    editDisciplinasAluno(idDisciplina: $idDisciplina, idAluno: $idAluno) {
-      idDisciplina
-      idAluno
-    }
+  getDisciplinaAlunos1{
+    nome
+    matricula
   }
-  
-  mutation DeleteProfessor($id: ID!) {
-    deleteProfessor(id: $id) {
-      ok
-    }
+  getDisciplinaAlunos2{
+    nome
+    matricula
   }
-  
-  mutation DeleteDisciplina($id: ID!) {
-    deleteDisciplina(id: $id) {
-      ok
-    }
+  getDisciplinaAlunos3{
+    nome
+    matricula
   }
-  
-  mutation DeleteAluno($nome: String!, $matricula: String!) {
-    deleteAluno(nome: $nome, matricula: $matricula) {
-      ok
-    }
+  getDisciplinaAlunos4{
+    nome
+    matricula
   }
-  
-  mutation DeleteDisciplinasProfessor($idDisciplina: ID!) {
-    deleteDisciplinasProfessor(idDisciplina: $idDisciplina) {
-      ok
-    }
+  getDisciplinaAlunos5{
+    nome
+    matricula
   }
-  
-  mutation DeleteDisciplinasAluno($idDisciplina: ID!) {
-    deleteDisciplinasAluno(idDisciplina: $idDisciplina) {
-      ok
-    }
+  getDisciplinaAlunos6{
+    nome
+    matricula
   }
-  
+}
+
+mutation UpdateProfessor($id: ID!, $nome: String!) {
+  editProfessor(id: $id, nome: $nome) {
+    id
+    nome
+  }
+}
+
+mutation UpdateDisciplina($id: ID!, $nome: String!, $horario: String!) {
+  editDisciplina(id: $id, nome: $nome, horario: $horario) {
+    id
+    nome
+    horario
+  }
+}
+
+mutation UpdateAluno($nome: String!, $matricula: String!) {
+  editAluno(nome: $nome, matricula: $matricula) {
+    nome
+    matricula
+  }
+}
+
+mutation UpdateDisciplinasProfessor($idDisciplina: ID!, $idProfessor: String!) {
+  editDisciplinasProfessor(
+    idDisciplina: $idDisciplina
+    idProfessor: $idProfessor
+  ) {
+    idDisciplina
+    idProfessor
+  }
+}
+
+mutation UpdateDisciplinasAluno($idDisciplina: ID!, $idAluno: String!) {
+  editDisciplinasAluno(idDisciplina: $idDisciplina, idAluno: $idAluno) {
+    idDisciplina
+    idAluno
+  }
+}
+
+mutation DeleteProfessor($id: ID!) {
+  deleteProfessor(id: $id) {
+    ok
+  }
+}
+
+mutation DeleteDisciplina($id: ID!) {
+  deleteDisciplina(id: $id) {
+    ok
+  }
+}
+
+mutation DeleteAluno($nome: String!, $matricula: String!) {
+  deleteAluno(nome: $nome, matricula: $matricula) {
+    ok
+  }
+}
+
+mutation DeleteDisciplinasProfessor($idDisciplina: ID!) {
+  deleteDisciplinasProfessor(idDisciplina: $idDisciplina) {
+    ok
+  }
+}
+
+mutation DeleteDisciplinasAluno($idDisciplina: ID!) {
+  deleteDisciplinasAluno(idDisciplina: $idDisciplina) {
+    ok
+  }
+}
