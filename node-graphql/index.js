@@ -5,7 +5,7 @@ let data = fs.readFileSync("database.json");
 // let data2 = fs.readFileSync("getDisciplinaAlunos1.json");
 var db = JSON.parse(data);
 
-console.log(db)
+// console.log(db)
 
 // var db1 = JSON.parse(data2);
 
@@ -97,27 +97,34 @@ let db4 = getAlunosDisciplina4()
 let db5 = getAlunosDisciplina5()
 let db6 = getAlunosDisciplina6()
 
+// console.log(db.DisciplinasAlunos[0].idAluno[0])
+
 const getDisciplinasAluno1 = () => {
-  if(db.DisciplinasAlunos[0]){
-    let idAlunos = []
-    for(let i = 0; i < db.DisciplinasAlunos[5].idAluno.length; i++){
-      const foundAluno = db.Alunos.find(aluno => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i])
-      idAlunos.push(foundAluno)
-    }
-    return idAlunos
-  }
+  for(let i = 0; i < db.Alunos.length; i++){
+        let idAlunos = []
+        for(let j = 0; j < db.Alunos[i].matricula; j++){
+          // mais um for pra percorrer o array de disciplinas
+          const foundDisciplina = db.DisciplinasAlunos.find(disciplina => disciplina.idAluno === db.Alunos[i].matricula[j])
+          // const foundAluno = db.DisciplinasAlunos.find(disciplina => disciplina.idAluno === db.Alunos.matricula)
+          idAlunos.push(foundDisciplina)
+        }
+        // console.log("Disciplinas que o aluno tal apareceu" + `${i}`, idAlunos)
+        return idAlunos[i]
+      }
 }
 
-const getDisciplinasAluno2 = () => {
-  if(db.DisciplinasAlunos[1]){
-    let idAlunos = []
-    for(let i = 0; i < db.DisciplinasAlunos[5].idAluno.length; i++){
-      const foundAluno = db.Alunos.find(aluno => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i])
-      idAlunos.push(foundAluno)
-    }
-    return idAlunos
-  }
-}
+console.log(getDisciplinasAluno1());
+
+// const getDisciplinasAluno2 = () => {
+//   if(db.DisciplinasAlunos[1]){
+//     let idAlunos = []
+//     for(let i = 0; i < db.DisciplinasAlunos[5].idAluno.length; i++){
+//       const foundAluno = db.Alunos.find(aluno => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i])
+//       idAlunos.push(foundAluno)
+//     }
+//     return idAlunos
+//   }
+// }
 
 const typeDefs = gql`
 
