@@ -1,0 +1,257 @@
+{
+    "Professores": [
+      {
+        "id": "1",
+        "nome": "Nabor das Chagas"
+      },
+      {
+        "id": "2",
+        "nome": "José Alzir Bruno"
+      },
+      {
+        "id": "3",
+        "nome": "Ronaldo Gonçalves"
+      },
+      {
+        "id": "4",
+        "nome": "Wilson Wagner"
+      },
+      {
+        "id": "5",
+        "nome": "Caio Pontes"
+      }
+    ],
+    "Disciplinas": [
+      {
+        "id": "1",
+        "nome": "Computação Distribuída",
+        "horario": "N24AB"
+      },
+      {
+        "id": "2",
+        "nome": "Modelagem e Avaliação de Desempenho",
+        "horario": "N24CD"
+      },
+      {
+        "id": "3",
+        "nome": "Segurança no Ciberespaço",
+        "horario": "T24EF"
+      },
+      {
+        "id": "4",
+        "nome": "Projeto Final Integrador 1",
+        "horario": "T6EFN6AB"
+      },
+      {
+        "id": "5",
+        "nome": "Estrutura de Dados",
+        "horario": "N35CD"
+      },
+      {
+        "id": "6",
+        "nome": "Gerenciamento da Implantação de Sistemas",
+        "horario": "N35AB"
+      }
+    ],
+    "Alunos": [
+      {
+        "nome": "Victor Torres de Melo",
+        "matricula": "2017000001"
+      },
+      {
+        "nome": "Renato Vidal Moura",
+        "matricula": "2017000002"
+      },
+      {
+        "nome": "Davi Pereira",
+        "matricula": "2017000003"
+      },
+      {
+        "nome": "Gabriel de Oliveira",
+        "matricula": "2017000004"
+      },
+      {
+        "nome": "Maycon Bezerra Batista",
+        "matricula": "2017000005"
+      },
+      {
+        "nome": "Matias Santos Junior",
+        "matricula": "2017000006"
+      },
+      {
+        "nome": "Junior Fernandes Neto",
+        "matricula": "2017000007"
+      },
+      {
+        "nome": "Miguel Rocha da Silva",
+        "matricula": "2017000008"
+      },
+      {
+        "nome": "Arthur Sampaio",
+        "matricula": "2017000009"
+      },
+      {
+        "nome": "Gael Lopes Filho",
+        "matricula": "2017000010"
+      },
+      {
+        "nome": "Heitor Teles Saraiva",
+        "matricula": "2017000011"
+      },
+      {
+        "nome": "Helena Gomes",
+        "matricula": "2017000012"
+      },
+      {
+        "nome": "Alice Lima",
+        "matricula": "2017000013"
+      },
+      {
+        "nome": "Theo Borges",
+        "matricula": "2017000014"
+      },
+      {
+        "nome": "Laura Ulisses",
+        "matricula": "2017000015"
+      },
+      {
+        "nome": "Lara Santos",
+        "matricula": "2017000016"
+      },
+      {
+        "nome": "Livia Silva",
+        "matricula": "2017000017"
+      },
+      {
+        "nome": "Lorena Lima",
+        "matricula": "2017000018"
+      },
+      {
+        "nome": "Samuel Bola",
+        "matricula": "2017000019"
+      },
+      {
+        "nome": "Maria Alice",
+        "matricula": "2017000020"
+      }
+    ],
+    "DisciplinasProfessores": [
+      {
+        "idDisciplina": "1",
+        "idProfessor": "1"
+      },
+      {
+        "idDisciplina": "2",
+        "idProfessor": "2"
+      },
+      {
+        "idDisciplina": "3",
+        "idProfessor": "2"
+      },
+      {
+        "idDisciplina": "4",
+        "idProfessor": "3"
+      },
+      {
+        "idDisciplina": "5",
+        "idProfessor": "5"
+      },
+      {
+        "idDisciplina": "6",
+        "idProfessor": "4"
+      }
+    ],
+  
+    "DisciplinasAlunos": [
+      {
+        "idDisciplina": "1",
+        "idAluno": [
+          "2017000001",
+          "2017000002",
+          "2017000003",
+          "2017000004",
+          "2017000005",
+          "2017000006",
+          "2017000007",
+          "2017000008",
+          "2017000009",
+          "2017000010",
+          "2017000011",
+          "2017000012",
+          "2017000013",
+          "2017000014",
+          "2017000015",
+          "2017000016",
+          "2017000017",
+          "2017000018",
+          "2017000019",
+          "2017000020"
+        ]
+      },
+      {
+        "idDisciplina": "2",
+        "idAluno": [
+          "2017000001",
+          "2017000002",
+          "2017000003",
+          "2017000004",
+          "2017000005",
+          "2017000006",
+          "2017000007",
+          "2017000008"
+        ]
+      },
+      {
+        "idDisciplina": "3",
+        "idAluno": [
+          "2017000001",
+          "2017000013",
+          "2017000014",
+          "2017000015",
+          "2017000019",
+          "2017000020"
+        ]
+      },
+      {
+        "idDisciplina": "4",
+        "idAluno": [
+          "2017000001",
+          "2017000002",
+          "2017000003",
+          "2017000004",
+          "2017000005",
+          "2017000006",
+          "2017000007",
+          "2017000008",
+          "2017000009",
+          "2017000019",
+          "2017000020"
+        ]
+      },
+      {
+        "idDisciplina": "5",
+        "idAluno": [
+          "2017000003",
+          "2017000004",
+          "2017000005",
+          "2017000006",
+          "2017000007",
+          "2017000008"
+        ]
+      },
+      {
+        "idDisciplina": "6",
+        "idAluno": [
+          "2017000001",
+          "2017000013",
+          "2017000014",
+          "2017000015",
+          "2017000016",
+          "2017000017",
+          "2017000018",
+          "2017000019",
+          "2017000020"
+        ]
+      }
+    ]
+  }
