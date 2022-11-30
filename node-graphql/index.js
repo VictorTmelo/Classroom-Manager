@@ -1,6 +1,6 @@
 const { ApolloServer, gql } = require("apollo-server");
 const uuid = require("uuid/v4");
-const db = require("./database.json");
+const db = require("../database.json");
 
 const typeDefs = gql`
 
