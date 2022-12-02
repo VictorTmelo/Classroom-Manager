@@ -1,12 +1,33 @@
 'use strict';
-module.exports = function(app) {
-var messages = require('../controllers/msgController');
-// messages Routes
-app.route('/messages')
-   .get(messages.list_all_messages)
-   .post(messages.create_a_message);
-app.route('/messages/:msgId')
-   .get(messages.read_a_message)
-   .put(messages.update_a_message)
-   .delete(messages.delete_a_message);
+
+module.exports = function (app) {
+
+   const controller = require('../controllers/msgController');
+
+   app.route('/')
+      .get(controller.listarTudo);
+   
+   app.route('/professores')
+      .get(controller.listarProfessores)
+      .post(controller.criarProfessor);
+
+   app.route('/alunos')
+      .get(controller.listarAlunos)
+      .post(controller.criarAluno);
+
+   app.route('/disciplinas')
+      .get(controller.listarDisciplinas)
+      .post(controller.criarDisciplina);
+
+   app.route('/alunosDaDisciplina/:nome')
+      .get(controller.listarAlunosDeDisciplina)
+
+   app.route('/disciplinasDoAluno/:nome')
+      .get(controller.listarDisciplinasDeAluno)
+
+   app.route('/disciplinasDoProfessor/:nome')
+      .get(controller.listarDisciplinasDeProfessor)
+
 };
+
+
