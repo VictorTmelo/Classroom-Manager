@@ -1,0 +1,80 @@
+syntax="proto3";
+
+service classroomManager {
+    rpc addProfessor(Professor) returns (GenericResponse){}
+    rpc updateProfessor(id) returns (GenericResponse){}
+    rpc deleteProfessor(id) returns (GenericResponse){}
+    rpc getProfessor(id) returns (professorResponse){}
+    rpc getProfessors(Empty) returns (professorsGenericResponse){}
+    rpc getProfessorsFromCourse(id) returns (professorsGenericResponse){}
+
+    rpc addCourse(Course) returns (GenericResponse){}
+    rpc updateCourse(id) returns (GenericResponse){}
+    rpc deleteCourse(id) returns (GenericResponse){}
+    rpc getCourse(id) returns (courseResponse){}
+    rpc getCourses(Empty) returns (coursesGenericResponse){}
+    rpc getCoursesFromProfessor(id) returns (coursesGenericResponse){}
+    rpc getCoursesFromStudent(id) returns (coursesGenericResponse){}
+
+
+    rpc addStudent(Student) returns (GenericResponse) {}
+    rpc updateStudent(id) returns (GenericResponse) {}
+    rpc deleteStudent (id) returns (GenericResponse) {}
+    rpc getStudent (id) returns (studentResponse) {}
+    rpc getStudents (Empty) returns (studentsGenericResponse) {}
+    rpc getStudentsFromCourse (id) returns (studentsGenericResponse) {}
+
+}
+
+message id {
+    string id = 1;
+}
+
+
+message GenericResponse {
+    string msg = 1;
+}
+
+message Professor {
+    string id = 1;
+    string nome = 2;
+}
+
+message professorResponse {
+    Professor professor = 1;
+}
+
+message professorsGenericResponse {
+    repeated Professor professors = 1;
+}
+
+
+message Course {
+    string id = 1;
+    string nome = 2;
+    string horario = 3;
+}
+
+message courseResponse {
+    Course course = 1;
+}
+
+message coursesGenericResponse {
+    repeated Course courses = 1;
+}
+
+message Student {
+    string nome = 1;
+    string matricula = 2;
+}
+
+message studentResponse {
+    Student student = 1;
+}
+
+message studentsGenericResponse {
+    repeated Student students = 1;
+}
+
+
+message Empty {}
