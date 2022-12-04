@@ -1,33 +1,51 @@
 syntax="proto3";
 
 service classroomManager {
-    rpc addProfessor(Professor) returns (GenericResponse){}
-    rpc updateProfessor(id) returns (GenericResponse){}
-    rpc deleteProfessor(id) returns (GenericResponse){}
-    rpc getProfessor(id) returns (professorResponse){}
+    rpc addProfessor(addProfessorRequest) returns (GenericResponse){}
+    rpc updateProfessor(updateNameRequest) returns (GenericResponse){}
+    rpc deleteProfessor(nameRequest) returns (GenericResponse){}
+    rpc getProfessor(nameRequest) returns (professorResponse){}
     rpc getProfessors(Empty) returns (professorsGenericResponse){}
-    rpc getProfessorsFromCourse(id) returns (professorsGenericResponse){}
+    rpc getProfessorsFromCourse(nameRequest) returns (professorsGenericResponse){}
 
-    rpc addCourse(Course) returns (GenericResponse){}
-    rpc updateCourse(id) returns (GenericResponse){}
-    rpc deleteCourse(id) returns (GenericResponse){}
-    rpc getCourse(id) returns (courseResponse){}
+    rpc addCourse(addCourseRequest) returns (GenericResponse){}
+    rpc updateCourse(updateNameRequest) returns (GenericResponse){}
+    rpc deleteCourse(nameRequest) returns (GenericResponse){}
+    rpc getCourse(nameRequest) returns (courseResponse){}
     rpc getCourses(Empty) returns (coursesGenericResponse){}
-    rpc getCoursesFromProfessor(id) returns (coursesGenericResponse){}
-    rpc getCoursesFromStudent(id) returns (coursesGenericResponse){}
+    rpc getCoursesFromProfessor(nameRequest) returns (coursesGenericResponse){}
+    rpc getCoursesFromStudent(nameRequest) returns (coursesGenericResponse){}
 
 
-    rpc addStudent(Student) returns (GenericResponse) {}
-    rpc updateStudent(id) returns (GenericResponse) {}
-    rpc deleteStudent (id) returns (GenericResponse) {}
-    rpc getStudent (id) returns (studentResponse) {}
+    rpc addStudent(addStudentRequest) returns (GenericResponse) {}
+    rpc updateStudent(updateNameRequest) returns (GenericResponse) {}
+    rpc deleteStudent (nameRequest) returns (GenericResponse) {}
+    rpc getStudent (nameRequest) returns (studentResponse) {}
     rpc getStudents (Empty) returns (studentsGenericResponse) {}
-    rpc getStudentsFromCourse (id) returns (studentsGenericResponse) {}
+    rpc getStudentsFromCourse (nameRequest) returns (studentsGenericResponse) {}
 
 }
 
-message id {
-    string id = 1;
+message Professor {
+     string name = 2;
+}
+
+message Course {
+    string name = 2;
+    string time = 3;
+}
+
+message Student {
+    string name = 2;
+}
+
+message updateNameRequest {
+    string oldName = 1;
+    string newName = 2;
+}
+
+message nameRequest {
+    string name = 1;
 }
 
 
@@ -35,9 +53,8 @@ message GenericResponse {
     string msg = 1;
 }
 
-message Professor {
-    string id = 1;
-    string nome = 2;
+message addProfessorRequest {
+    Professor professor = 1;
 }
 
 message professorResponse {
@@ -45,14 +62,13 @@ message professorResponse {
 }
 
 message professorsGenericResponse {
-    repeated Professor professors = 1;
+
+    repeated Professor professor = 1;
 }
 
 
-message Course {
-    string id = 1;
-    string nome = 2;
-    string horario = 3;
+message addCourseRequest {
+   Course course = 1;
 }
 
 message courseResponse {
@@ -60,12 +76,11 @@ message courseResponse {
 }
 
 message coursesGenericResponse {
-    repeated Course courses = 1;
+    repeated Course course = 1;
 }
 
-message Student {
-    string nome = 1;
-    string matricula = 2;
+message addStudentRequest {
+    Student student = 1;
 }
 
 message studentResponse {
@@ -73,7 +88,7 @@ message studentResponse {
 }
 
 message studentsGenericResponse {
-    repeated Student students = 1;
+    repeated Student student = 1;
 }
 
 
