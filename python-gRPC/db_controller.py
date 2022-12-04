@@ -42,6 +42,15 @@ def create_professor(name):
     save_data_db('Professores', professor, 'post')
 
 
+def get_professor(name):
+    professors = get_professors()
+    for professor in professors:
+        if professor['nome'] == name:
+            return professor
+
+    return False
+
+
 def get_professors():
     db = load_db()
     return db['Professores']
@@ -53,8 +62,9 @@ def update_professor(name, new_name):
         if professor['nome'] == name:
             professor['nome'] = new_name
             save_data_db('Professores', professors, 'put')
+            return True
 
-    print(get_data())
+    return False
 
 
 def delete_professor(name):
@@ -63,7 +73,9 @@ def delete_professor(name):
         if professor['nome'] == name:
             professors.remove(professor)
             save_data_db('Professores', professor, 'delete')
-    print(get_data())
+            return True
+
+    return False
 
 
 def get_professor_id_by_name(name):
@@ -72,11 +84,17 @@ def get_professor_id_by_name(name):
         if professor['nome'] == name:
             return professor['id']
 
+    return False
+
 
 def get_professor_of_course(course_name):
-    course_id = get_course_by_name(course_name)['id']
-    professor_id = get_professor_id_of_course(course_id)
-    return get_professor_by_id(professor_id)
+    course = get_course_by_name(course_name)
+    if course:
+        course_id = course['id']
+        professor_id = get_professor_id_of_course(course_id)
+        return get_professor_by_id(professor_id)
+
+    return False
 
 
 def get_professor_id_of_course(course_id):
@@ -93,6 +111,15 @@ def create_course(name, horario):
     save_data_db('Disciplinas', course, 'post')
 
 
+def get_course(name):
+    courses = get_courses()
+    for course in courses:
+        if course['nome'] == name:
+            return course
+
+    return False
+
+
 def get_courses():
     db = load_db()
     return db['Disciplinas']
@@ -103,7 +130,10 @@ def update_course(name, new_name):
     for course in courses:
         if course['nome'] == name:
             course['nome'] = new_name
-            save_data_db('Disciplinas', course, 'put')
+            save_data_db('Disciplinas', courses, 'put')
+            return True
+
+    return False
 
 
 def delete_course(name):
@@ -112,7 +142,9 @@ def delete_course(name):
         if course['nome'] == name:
             courses.remove(course)
             save_data_db('Disciplinas', course, 'delete')
-    print(get_data())
+            return True
+
+    return False
 
 
 def get_course_by_name(course_name):
@@ -120,6 +152,8 @@ def get_course_by_name(course_name):
     for course in courses:
         if course['nome'] == course_name:
             return course
+
+    return False
 
 
 def get_course_by_id(course_id):
@@ -132,11 +166,14 @@ def get_course_by_id(course_id):
 def get_courses_of_student(student_name):
     courses = []
     student_id = get_student_id_by_name(student_name)
-    courses_id = get_courses_id_of_student(student_id)
-    for course_id in courses_id:
-        courses.append(get_course_by_id(course_id))
+    if student_id:
+        courses_id = get_courses_id_of_student(student_id)
+        for course_id in courses_id:
+            courses.append(get_course_by_id(course_id))
 
-    return courses
+        return courses
+
+    return False
 
 
 def get_courses_id_of_student(student_id):
@@ -148,11 +185,14 @@ def get_courses_id_of_student(student_id):
 def get_courses_of_professor(professor_name):
     courses = []
     professor_id = get_professor_id_by_name(professor_name)
-    courses_id = get_courses_id_of_professor(professor_id)
-    for course_id in courses_id:
-        courses.append(get_course_by_id(course_id))
+    if professor_id:
+        courses_id = get_courses_id_of_professor(professor_id)
+        for course_id in courses_id:
+            courses.append(get_course_by_id(course_id))
 
-    return courses
+        return courses
+
+    return False
 
 
 def get_courses_id_of_professor(professor_id):
@@ -164,8 +204,17 @@ def get_courses_id_of_professor(professor_id):
 def create_student(name):
     students = get_students()
     student_id = int(students[-1]['matricula']) + 1
-    student = {'matricula': str(student_id), 'nome': name}
+    student = {'nome': name, 'matricula': str(student_id)}
     save_data_db('Alunos', student, 'post')
+
+
+def get_student(name):
+    students = get_students()
+    for student in students:
+        if student['nome'] == name:
+            return student
+
+    return False
 
 
 def get_students():
@@ -178,7 +227,10 @@ def update_student(name, new_name):
     for student in students:
         if student['nome'] == name:
             student['nome'] = new_name
-            save_data_db('Alunos', student, 'put')
+            save_data_db('Alunos', students, 'put')
+            return True
+
+    return False
 
 
 def delete_student(name):
@@ -187,7 +239,9 @@ def delete_student(name):
         if student['nome'] == name:
             students.remove(student)
             save_data_db('Alunos', student, 'delete')
-    print(get_data())
+            return True
+
+    return False
 
 
 def get_student_by_id(id):
@@ -195,6 +249,8 @@ def get_student_by_id(id):
     for student in students:
         if student['matricula'] == id:
             return student
+
+    return False
 
 
 def get_student_id_by_name(name):
@@ -206,12 +262,16 @@ def get_student_id_by_name(name):
 
 def get_students_of_course(course_name):
     students = []
-    course_id = get_course_by_name(course_name)['id']
-    students_id = get_students_id_of_course(course_id)
-    for student_id in students_id:
-        students.append(get_student_by_id(student_id))
+    course = get_course_by_name(course_name)
+    if course:
+        course_id = course['id']
+        students_id = get_students_id_of_course(course_id)
+        for student_id in students_id:
+            students.append(get_student_by_id(student_id))
 
-    return students
+        return students
+
+    return False
 
 
 def get_students_id_of_course(course_id):
@@ -221,4 +281,4 @@ def get_students_id_of_course(course_id):
 
 
 if __name__ == '__main__':
-    delete_professor('Wilson Wagner Junior')
+    print(get_students())
