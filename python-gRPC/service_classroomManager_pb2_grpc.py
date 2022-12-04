@@ -16,22 +16,22 @@ class classroomManagerStub(object):
         """
         self.addProfessor = channel.unary_unary(
                 '/classroomManager/addProfessor',
-                request_serializer=service__classroomManager__pb2.Professor.SerializeToString,
+                request_serializer=service__classroomManager__pb2.addProfessorRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.GenericResponse.FromString,
                 )
         self.updateProfessor = channel.unary_unary(
                 '/classroomManager/updateProfessor',
-                request_serializer=service__classroomManager__pb2.id.SerializeToString,
+                request_serializer=service__classroomManager__pb2.updateNameRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.GenericResponse.FromString,
                 )
         self.deleteProfessor = channel.unary_unary(
                 '/classroomManager/deleteProfessor',
-                request_serializer=service__classroomManager__pb2.id.SerializeToString,
+                request_serializer=service__classroomManager__pb2.nameRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.GenericResponse.FromString,
                 )
         self.getProfessor = channel.unary_unary(
                 '/classroomManager/getProfessor',
-                request_serializer=service__classroomManager__pb2.id.SerializeToString,
+                request_serializer=service__classroomManager__pb2.nameRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.professorResponse.FromString,
                 )
         self.getProfessors = channel.unary_unary(
@@ -41,27 +41,27 @@ class classroomManagerStub(object):
                 )
         self.getProfessorsFromCourse = channel.unary_unary(
                 '/classroomManager/getProfessorsFromCourse',
-                request_serializer=service__classroomManager__pb2.id.SerializeToString,
+                request_serializer=service__classroomManager__pb2.nameRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.professorsGenericResponse.FromString,
                 )
         self.addCourse = channel.unary_unary(
                 '/classroomManager/addCourse',
-                request_serializer=service__classroomManager__pb2.Course.SerializeToString,
+                request_serializer=service__classroomManager__pb2.addCourseRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.GenericResponse.FromString,
                 )
         self.updateCourse = channel.unary_unary(
                 '/classroomManager/updateCourse',
-                request_serializer=service__classroomManager__pb2.id.SerializeToString,
+                request_serializer=service__classroomManager__pb2.updateNameRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.GenericResponse.FromString,
                 )
         self.deleteCourse = channel.unary_unary(
                 '/classroomManager/deleteCourse',
-                request_serializer=service__classroomManager__pb2.id.SerializeToString,
+                request_serializer=service__classroomManager__pb2.nameRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.GenericResponse.FromString,
                 )
         self.getCourse = channel.unary_unary(
                 '/classroomManager/getCourse',
-                request_serializer=service__classroomManager__pb2.id.SerializeToString,
+                request_serializer=service__classroomManager__pb2.nameRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.courseResponse.FromString,
                 )
         self.getCourses = channel.unary_unary(
@@ -71,32 +71,32 @@ class classroomManagerStub(object):
                 )
         self.getCoursesFromProfessor = channel.unary_unary(
                 '/classroomManager/getCoursesFromProfessor',
-                request_serializer=service__classroomManager__pb2.id.SerializeToString,
+                request_serializer=service__classroomManager__pb2.nameRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.coursesGenericResponse.FromString,
                 )
         self.getCoursesFromStudent = channel.unary_unary(
                 '/classroomManager/getCoursesFromStudent',
-                request_serializer=service__classroomManager__pb2.id.SerializeToString,
+                request_serializer=service__classroomManager__pb2.nameRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.coursesGenericResponse.FromString,
                 )
         self.addStudent = channel.unary_unary(
                 '/classroomManager/addStudent',
-                request_serializer=service__classroomManager__pb2.Student.SerializeToString,
+                request_serializer=service__classroomManager__pb2.addStudentRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.GenericResponse.FromString,
                 )
         self.updateStudent = channel.unary_unary(
                 '/classroomManager/updateStudent',
-                request_serializer=service__classroomManager__pb2.id.SerializeToString,
+                request_serializer=service__classroomManager__pb2.updateNameRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.GenericResponse.FromString,
                 )
         self.deleteStudent = channel.unary_unary(
                 '/classroomManager/deleteStudent',
-                request_serializer=service__classroomManager__pb2.id.SerializeToString,
+                request_serializer=service__classroomManager__pb2.nameRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.GenericResponse.FromString,
                 )
         self.getStudent = channel.unary_unary(
                 '/classroomManager/getStudent',
-                request_serializer=service__classroomManager__pb2.id.SerializeToString,
+                request_serializer=service__classroomManager__pb2.nameRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.studentResponse.FromString,
                 )
         self.getStudents = channel.unary_unary(
@@ -106,7 +106,7 @@ class classroomManagerStub(object):
                 )
         self.getStudentsFromCourse = channel.unary_unary(
                 '/classroomManager/getStudentsFromCourse',
-                request_serializer=service__classroomManager__pb2.id.SerializeToString,
+                request_serializer=service__classroomManager__pb2.nameRequest.SerializeToString,
                 response_deserializer=service__classroomManager__pb2.studentsGenericResponse.FromString,
                 )
 
@@ -233,22 +233,22 @@ def add_classroomManagerServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'addProfessor': grpc.unary_unary_rpc_method_handler(
                     servicer.addProfessor,
-                    request_deserializer=service__classroomManager__pb2.Professor.FromString,
+                    request_deserializer=service__classroomManager__pb2.addProfessorRequest.FromString,
                     response_serializer=service__classroomManager__pb2.GenericResponse.SerializeToString,
             ),
             'updateProfessor': grpc.unary_unary_rpc_method_handler(
                     servicer.updateProfessor,
-                    request_deserializer=service__classroomManager__pb2.id.FromString,
+                    request_deserializer=service__classroomManager__pb2.updateNameRequest.FromString,
                     response_serializer=service__classroomManager__pb2.GenericResponse.SerializeToString,
             ),
             'deleteProfessor': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteProfessor,
-                    request_deserializer=service__classroomManager__pb2.id.FromString,
+                    request_deserializer=service__classroomManager__pb2.nameRequest.FromString,
                     response_serializer=service__classroomManager__pb2.GenericResponse.SerializeToString,
             ),
             'getProfessor': grpc.unary_unary_rpc_method_handler(
                     servicer.getProfessor,
-                    request_deserializer=service__classroomManager__pb2.id.FromString,
+                    request_deserializer=service__classroomManager__pb2.nameRequest.FromString,
                     response_serializer=service__classroomManager__pb2.professorResponse.SerializeToString,
             ),
             'getProfessors': grpc.unary_unary_rpc_method_handler(
@@ -258,27 +258,27 @@ def add_classroomManagerServicer_to_server(servicer, server):
             ),
             'getProfessorsFromCourse': grpc.unary_unary_rpc_method_handler(
                     servicer.getProfessorsFromCourse,
-                    request_deserializer=service__classroomManager__pb2.id.FromString,
+                    request_deserializer=service__classroomManager__pb2.nameRequest.FromString,
                     response_serializer=service__classroomManager__pb2.professorsGenericResponse.SerializeToString,
             ),
             'addCourse': grpc.unary_unary_rpc_method_handler(
                     servicer.addCourse,
-                    request_deserializer=service__classroomManager__pb2.Course.FromString,
+                    request_deserializer=service__classroomManager__pb2.addCourseRequest.FromString,
                     response_serializer=service__classroomManager__pb2.GenericResponse.SerializeToString,
             ),
             'updateCourse': grpc.unary_unary_rpc_method_handler(
                     servicer.updateCourse,
-                    request_deserializer=service__classroomManager__pb2.id.FromString,
+                    request_deserializer=service__classroomManager__pb2.updateNameRequest.FromString,
                     response_serializer=service__classroomManager__pb2.GenericResponse.SerializeToString,
             ),
             'deleteCourse': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteCourse,
-                    request_deserializer=service__classroomManager__pb2.id.FromString,
+                    request_deserializer=service__classroomManager__pb2.nameRequest.FromString,
                     response_serializer=service__classroomManager__pb2.GenericResponse.SerializeToString,
             ),
             'getCourse': grpc.unary_unary_rpc_method_handler(
                     servicer.getCourse,
-                    request_deserializer=service__classroomManager__pb2.id.FromString,
+                    request_deserializer=service__classroomManager__pb2.nameRequest.FromString,
                     response_serializer=service__classroomManager__pb2.courseResponse.SerializeToString,
             ),
             'getCourses': grpc.unary_unary_rpc_method_handler(
@@ -288,32 +288,32 @@ def add_classroomManagerServicer_to_server(servicer, server):
             ),
             'getCoursesFromProfessor': grpc.unary_unary_rpc_method_handler(
                     servicer.getCoursesFromProfessor,
-                    request_deserializer=service__classroomManager__pb2.id.FromString,
+                    request_deserializer=service__classroomManager__pb2.nameRequest.FromString,
                     response_serializer=service__classroomManager__pb2.coursesGenericResponse.SerializeToString,
             ),
             'getCoursesFromStudent': grpc.unary_unary_rpc_method_handler(
                     servicer.getCoursesFromStudent,
-                    request_deserializer=service__classroomManager__pb2.id.FromString,
+                    request_deserializer=service__classroomManager__pb2.nameRequest.FromString,
                     response_serializer=service__classroomManager__pb2.coursesGenericResponse.SerializeToString,
             ),
             'addStudent': grpc.unary_unary_rpc_method_handler(
                     servicer.addStudent,
-                    request_deserializer=service__classroomManager__pb2.Student.FromString,
+                    request_deserializer=service__classroomManager__pb2.addStudentRequest.FromString,
                     response_serializer=service__classroomManager__pb2.GenericResponse.SerializeToString,
             ),
             'updateStudent': grpc.unary_unary_rpc_method_handler(
                     servicer.updateStudent,
-                    request_deserializer=service__classroomManager__pb2.id.FromString,
+                    request_deserializer=service__classroomManager__pb2.updateNameRequest.FromString,
                     response_serializer=service__classroomManager__pb2.GenericResponse.SerializeToString,
             ),
             'deleteStudent': grpc.unary_unary_rpc_method_handler(
                     servicer.deleteStudent,
-                    request_deserializer=service__classroomManager__pb2.id.FromString,
+                    request_deserializer=service__classroomManager__pb2.nameRequest.FromString,
                     response_serializer=service__classroomManager__pb2.GenericResponse.SerializeToString,
             ),
             'getStudent': grpc.unary_unary_rpc_method_handler(
                     servicer.getStudent,
-                    request_deserializer=service__classroomManager__pb2.id.FromString,
+                    request_deserializer=service__classroomManager__pb2.nameRequest.FromString,
                     response_serializer=service__classroomManager__pb2.studentResponse.SerializeToString,
             ),
             'getStudents': grpc.unary_unary_rpc_method_handler(
@@ -323,7 +323,7 @@ def add_classroomManagerServicer_to_server(servicer, server):
             ),
             'getStudentsFromCourse': grpc.unary_unary_rpc_method_handler(
                     servicer.getStudentsFromCourse,
-                    request_deserializer=service__classroomManager__pb2.id.FromString,
+                    request_deserializer=service__classroomManager__pb2.nameRequest.FromString,
                     response_serializer=service__classroomManager__pb2.studentsGenericResponse.SerializeToString,
             ),
     }
@@ -348,7 +348,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/addProfessor',
-            service__classroomManager__pb2.Professor.SerializeToString,
+            service__classroomManager__pb2.addProfessorRequest.SerializeToString,
             service__classroomManager__pb2.GenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -365,7 +365,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/updateProfessor',
-            service__classroomManager__pb2.id.SerializeToString,
+            service__classroomManager__pb2.updateNameRequest.SerializeToString,
             service__classroomManager__pb2.GenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -382,7 +382,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/deleteProfessor',
-            service__classroomManager__pb2.id.SerializeToString,
+            service__classroomManager__pb2.nameRequest.SerializeToString,
             service__classroomManager__pb2.GenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -399,7 +399,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/getProfessor',
-            service__classroomManager__pb2.id.SerializeToString,
+            service__classroomManager__pb2.nameRequest.SerializeToString,
             service__classroomManager__pb2.professorResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -433,7 +433,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/getProfessorsFromCourse',
-            service__classroomManager__pb2.id.SerializeToString,
+            service__classroomManager__pb2.nameRequest.SerializeToString,
             service__classroomManager__pb2.professorsGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -450,7 +450,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/addCourse',
-            service__classroomManager__pb2.Course.SerializeToString,
+            service__classroomManager__pb2.addCourseRequest.SerializeToString,
             service__classroomManager__pb2.GenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -467,7 +467,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/updateCourse',
-            service__classroomManager__pb2.id.SerializeToString,
+            service__classroomManager__pb2.updateNameRequest.SerializeToString,
             service__classroomManager__pb2.GenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -484,7 +484,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/deleteCourse',
-            service__classroomManager__pb2.id.SerializeToString,
+            service__classroomManager__pb2.nameRequest.SerializeToString,
             service__classroomManager__pb2.GenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -501,7 +501,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/getCourse',
-            service__classroomManager__pb2.id.SerializeToString,
+            service__classroomManager__pb2.nameRequest.SerializeToString,
             service__classroomManager__pb2.courseResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -535,7 +535,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/getCoursesFromProfessor',
-            service__classroomManager__pb2.id.SerializeToString,
+            service__classroomManager__pb2.nameRequest.SerializeToString,
             service__classroomManager__pb2.coursesGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -552,7 +552,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/getCoursesFromStudent',
-            service__classroomManager__pb2.id.SerializeToString,
+            service__classroomManager__pb2.nameRequest.SerializeToString,
             service__classroomManager__pb2.coursesGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -569,7 +569,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/addStudent',
-            service__classroomManager__pb2.Student.SerializeToString,
+            service__classroomManager__pb2.addStudentRequest.SerializeToString,
             service__classroomManager__pb2.GenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -586,7 +586,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/updateStudent',
-            service__classroomManager__pb2.id.SerializeToString,
+            service__classroomManager__pb2.updateNameRequest.SerializeToString,
             service__classroomManager__pb2.GenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -603,7 +603,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/deleteStudent',
-            service__classroomManager__pb2.id.SerializeToString,
+            service__classroomManager__pb2.nameRequest.SerializeToString,
             service__classroomManager__pb2.GenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -620,7 +620,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/getStudent',
-            service__classroomManager__pb2.id.SerializeToString,
+            service__classroomManager__pb2.nameRequest.SerializeToString,
             service__classroomManager__pb2.studentResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -654,7 +654,7 @@ class classroomManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/classroomManager/getStudentsFromCourse',
-            service__classroomManager__pb2.id.SerializeToString,
+            service__classroomManager__pb2.nameRequest.SerializeToString,
             service__classroomManager__pb2.studentsGenericResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
