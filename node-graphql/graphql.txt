@@ -51,29 +51,149 @@ query Read {
     idDisciplina
     idAluno
   }
-  getDisciplinaAlunos1{
+  getAlunosDisciplina1_{
     nome
     matricula
   }
-  getDisciplinaAlunos2{
+  getAlunosDisciplina2_{
     nome
     matricula
   }
-  getDisciplinaAlunos3{
+  getAlunosDisciplina3_{
     nome
     matricula
   }
-  getDisciplinaAlunos4{
+  getAlunosDisciplina4_{
     nome
     matricula
   }
-  getDisciplinaAlunos5{
+  getAlunosDisciplina5_{
     nome
     matricula
   }
-  getDisciplinaAlunos6{
+  getAlunosDisciplina6_{
     nome
     matricula
+  }
+	getDadosDisciplinasAluno1{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno2{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno3{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno4{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno5{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno6{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno7{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno8{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno9{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno10{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno11{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno12{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno13{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno14{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno15{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno16{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno17{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno18{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno19{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasAluno20{
+    id
+    nome
+    horario
+  }
+  getDadosDisciplinasProfessor1{
+    id
+    nome
+  }
+  getDadosDisciplinasProfessor2{
+    id
+    nome
+  }
+  getDadosDisciplinasProfessor3{
+    id
+    nome
+  }
+  getDadosDisciplinasProfessor4{
+    id
+    nome
+  }
+  getDadosDisciplinasProfessor5{
+    id
+    nome
   }
 }
 
