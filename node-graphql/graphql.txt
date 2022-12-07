@@ -1,4 +1,256 @@
-# Write your query or mutation here
+query GetProfessores{
+  professores {
+    id
+    nome
+  }
+}
+
+query GetDisciplinas{
+  disciplinas {
+    id
+    nome
+    horario
+  }
+}
+
+query GetAlunos{
+  alunos {
+    nome
+    matricula
+  }
+}
+
+query GetDisciplinasProfessores{
+  disciplinasProfessores {
+    idDisciplina
+    idProfessor
+  }
+}
+
+query GetDisciplinasAlunos{
+  disciplinasAlunos {
+    idDisciplina
+    idAluno
+  }
+}
+
+query GetAlunosDisciplina1_{
+  getAlunosDisciplina1_{
+    nome
+    matricula
+  }
+}
+
+query GetAlunosDisciplina2_{
+  getAlunosDisciplina2_{
+    nome
+    matricula
+  }
+}
+
+query GetAlunosDisciplina3_{
+  getAlunosDisciplina3_{
+    nome
+    matricula
+  }
+}
+
+query GetAlunosDisciplina4_{
+  getAlunosDisciplina4_{
+    nome
+    matricula
+  }
+}
+
+query GetAlunosDisciplina5_{
+  getAlunosDisciplina5_{
+    nome
+    matricula
+  }
+}
+
+query GetAlunosDisciplina6_{
+  getAlunosDisciplina6_{
+    nome
+    matricula
+  }
+}
+
+query GetDadosDisciplinasAluno1{
+  getDadosDisciplinasAluno1{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno2{
+  getDadosDisciplinasAluno2{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno3{
+  getDadosDisciplinasAluno3{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno4{
+  getDadosDisciplinasAluno4{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno5{
+  getDadosDisciplinasAluno5{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno6{
+  getDadosDisciplinasAluno6{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno7{
+  getDadosDisciplinasAluno7{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno8{
+  getDadosDisciplinasAluno8{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno9{
+  getDadosDisciplinasAluno9{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno10{
+  getDadosDisciplinasAluno10{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno11{
+  getDadosDisciplinasAluno11{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno12{
+  getDadosDisciplinasAluno12{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno13{
+  getDadosDisciplinasAluno13{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno14{
+  getDadosDisciplinasAluno14{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno15{
+  getDadosDisciplinasAluno15{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno16{
+  getDadosDisciplinasAluno16{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno17{
+  getDadosDisciplinasAluno17{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno18{
+  getDadosDisciplinasAluno18{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno19{
+  getDadosDisciplinasAluno19{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasAluno20{
+  getDadosDisciplinasAluno20{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasProfessor1{
+  getDadosDisciplinasProfessor1{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasProfessor2{
+  getDadosDisciplinasProfessor2{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasProfessor3{
+  getDadosDisciplinasProfessor3{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasProfessor4{
+  getDadosDisciplinasProfessor4{
+    id
+    nome
+  }
+}
+
+query GetDadosDisciplinasProfessor5{
+  getDadosDisciplinasProfessor5{
+    id
+    nome
+  }
+}
+
 mutation CreateProfessor {
   addProfessor(nome: "Professor.") {
     id
@@ -26,174 +278,6 @@ mutation CreateDisciplinasProfessor {
 mutation CreateDisciplinasAluno {
   addDisciplinasAluno(idDisciplina: "123", idAluno: "123") {
     idDisciplina
-  }
-}
-
-query Read {
-  professores {
-    id
-    nome
-  }
-  alunos {
-    nome
-    matricula
-  }
-  disciplinas {
-    id
-    nome
-    horario
-  }
-  disciplinasProfessores {
-    idDisciplina
-    idProfessor
-  }
-  disciplinasAlunos {
-    idDisciplina
-    idAluno
-  }
-  getAlunosDisciplina1_{
-    nome
-    matricula
-  }
-  getAlunosDisciplina2_{
-    nome
-    matricula
-  }
-  getAlunosDisciplina3_{
-    nome
-    matricula
-  }
-  getAlunosDisciplina4_{
-    nome
-    matricula
-  }
-  getAlunosDisciplina5_{
-    nome
-    matricula
-  }
-  getAlunosDisciplina6_{
-    nome
-    matricula
-  }
-	getDadosDisciplinasAluno1{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno2{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno3{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno4{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno5{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno6{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno7{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno8{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno9{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno10{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno11{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno12{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno13{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno14{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno15{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno16{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno17{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno18{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno19{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasAluno20{
-    id
-    nome
-    horario
-  }
-  getDadosDisciplinasProfessor1{
-    id
-    nome
-  }
-  getDadosDisciplinasProfessor2{
-    id
-    nome
-  }
-  getDadosDisciplinasProfessor3{
-    id
-    nome
-  }
-  getDadosDisciplinasProfessor4{
-    id
-    nome
-  }
-  getDadosDisciplinasProfessor5{
-    id
-    nome
   }
 }
 
