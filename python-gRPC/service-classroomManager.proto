@@ -17,7 +17,7 @@ service classroomManager {
     rpc getCoursesFromStudent(nameRequest) returns (coursesGenericResponse){}
 
 
-    rpc addStudent(addStudentRequest) returns (GenericResponse) {}
+    rpc addStudent(addStudentRequest) returns  (GenericResponse) {}
     rpc updateStudent(updateNameRequest) returns (GenericResponse) {}
     rpc deleteStudent (nameRequest) returns (GenericResponse) {}
     rpc getStudent (nameRequest) returns (studentResponse) {}
@@ -27,16 +27,23 @@ service classroomManager {
 }
 
 message Professor {
+     string id = 1;
      string name = 2;
+
 }
 
 message Course {
+    string id = 1;
     string name = 2;
     string time = 3;
 }
 
 message Student {
-    string name = 2;
+     string name = 1;
+     string matricula = 2;
+     string idade = 3;
+     string email = 4;
+     string telefone = 5;
 }
 
 message updateNameRequest {

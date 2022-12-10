@@ -105,7 +105,7 @@ class ClassroomManagerServer(pb2_grpc.classroomManagerServicer):
         return pb2.coursesGenericResponse(course=[{'name': 'Aluno nao encontrado', 'time': 'None'}])
 
     def addStudent(self, request, context):
-        controller.create_student(request.student.name)
+        controller.create_student(request.student.name,request.student.idade,request.student.email,request.student.telefone)
         print('Aluno:', request.student.name, 'foi adicionado')
         return pb2.GenericResponse(msg='Aluno adicionado com sucesso')
 
@@ -126,14 +126,17 @@ class ClassroomManagerServer(pb2_grpc.classroomManagerServicer):
     def getStudent(self, request, context):
         student = controller.get_student(request.name)
         if student:
-            return pb2.studentResponse(student={'name': student['nome']})
+            return pb2.studentResponse(student={'name': student['nome'], 'matricula': student['matricula'], 'idade': student['idade'],
+                     'email': student['email'], 'telefone': student['telefone']})
         return pb2.studentResponse(student={'name': 'Aluno nao encontrado'})
 
     def getStudents(self, request, context):
         students = controller.get_students()
         students_list = []
         for student in students:
-            students_list.append({'name': student['nome']})
+            students_list.append({'name': student['nome'], 'matricula': student['matricula'], 'idade': student['idade'],
+                                  'email': student['email'], 'telefone': student['telefone']})
+
         return pb2.studentsGenericResponse(student=students_list)
 
     def getStudentsFromCourse(self, request, context):
@@ -141,13 +144,13 @@ class ClassroomManagerServer(pb2_grpc.classroomManagerServicer):
         students_list = []
         if students:
             for student in students:
-                students_list.append({'name': student['nome']})
+                students_list.append(
+                    {'name': student['nome'], 'matricula': student['matricula'], 'idade': student['idade'],
+                     'email': student['email'], 'telefone': student['telefone']})
 
-            print(students_list)
             return pb2.studentsGenericResponse(student=students_list)
 
         return pb2.studentsGenericResponse(student=[{'name': 'Curso nao encontrado'}])
-
 
 
 def server():

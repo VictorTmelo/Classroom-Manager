@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1eservice-classroomManager.proto\"\x19\n\tProfessor\x12\x0c\n\x04name\x18\x02 \x01(\t\"$\n\x06\x43ourse\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04time\x18\x03 \x01(\t\"\x17\n\x07Student\x12\x0c\n\x04name\x18\x02 \x01(\t\"5\n\x11updateNameRequest\x12\x0f\n\x07oldName\x18\x01 \x01(\t\x12\x0f\n\x07newName\x18\x02 \x01(\t\"\x1b\n\x0bnameRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x1e\n\x0fGenericResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"4\n\x13\x61\x64\x64ProfessorRequest\x12\x1d\n\tprofessor\x18\x01 \x01(\x0b\x32\n.Professor\"2\n\x11professorResponse\x12\x1d\n\tprofessor\x18\x01 \x01(\x0b\x32\n.Professor\":\n\x19professorsGenericResponse\x12\x1d\n\tprofessor\x18\x01 \x03(\x0b\x32\n.Professor\"+\n\x10\x61\x64\x64\x43ourseRequest\x12\x17\n\x06\x63ourse\x18\x01 \x01(\x0b\x32\x07.Course\")\n\x0e\x63ourseResponse\x12\x17\n\x06\x63ourse\x18\x01 \x01(\x0b\x32\x07.Course\"1\n\x16\x63oursesGenericResponse\x12\x17\n\x06\x63ourse\x18\x01 \x03(\x0b\x32\x07.Course\".\n\x11\x61\x64\x64StudentRequest\x12\x19\n\x07student\x18\x01 \x01(\x0b\x32\x08.Student\",\n\x0fstudentResponse\x12\x19\n\x07student\x18\x01 \x01(\x0b\x32\x08.Student\"4\n\x17studentsGenericResponse\x12\x19\n\x07student\x18\x01 \x03(\x0b\x32\x08.Student\"\x07\n\x05\x45mpty2\xb9\x08\n\x10\x63lassroomManager\x12\x38\n\x0c\x61\x64\x64Professor\x12\x14.addProfessorRequest\x1a\x10.GenericResponse\"\x00\x12\x39\n\x0fupdateProfessor\x12\x12.updateNameRequest\x1a\x10.GenericResponse\"\x00\x12\x33\n\x0f\x64\x65leteProfessor\x12\x0c.nameRequest\x1a\x10.GenericResponse\"\x00\x12\x32\n\x0cgetProfessor\x12\x0c.nameRequest\x1a\x12.professorResponse\"\x00\x12\x35\n\rgetProfessors\x12\x06.Empty\x1a\x1a.professorsGenericResponse\"\x00\x12\x45\n\x17getProfessorsFromCourse\x12\x0c.nameRequest\x1a\x1a.professorsGenericResponse\"\x00\x12\x32\n\taddCourse\x12\x11.addCourseRequest\x1a\x10.GenericResponse\"\x00\x12\x36\n\x0cupdateCourse\x12\x12.updateNameRequest\x1a\x10.GenericResponse\"\x00\x12\x30\n\x0c\x64\x65leteCourse\x12\x0c.nameRequest\x1a\x10.GenericResponse\"\x00\x12,\n\tgetCourse\x12\x0c.nameRequest\x1a\x0f.courseResponse\"\x00\x12/\n\ngetCourses\x12\x06.Empty\x1a\x17.coursesGenericResponse\"\x00\x12\x42\n\x17getCoursesFromProfessor\x12\x0c.nameRequest\x1a\x17.coursesGenericResponse\"\x00\x12@\n\x15getCoursesFromStudent\x12\x0c.nameRequest\x1a\x17.coursesGenericResponse\"\x00\x12\x34\n\naddStudent\x12\x12.addStudentRequest\x1a\x10.GenericResponse\"\x00\x12\x37\n\rupdateStudent\x12\x12.updateNameRequest\x1a\x10.GenericResponse\"\x00\x12\x31\n\rdeleteStudent\x12\x0c.nameRequest\x1a\x10.GenericResponse\"\x00\x12.\n\ngetStudent\x12\x0c.nameRequest\x1a\x10.studentResponse\"\x00\x12\x31\n\x0bgetStudents\x12\x06.Empty\x1a\x18.studentsGenericResponse\"\x00\x12\x41\n\x15getStudentsFromCourse\x12\x0c.nameRequest\x1a\x18.studentsGenericResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1eservice-classroomManager.proto\"%\n\tProfessor\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"0\n\x06\x43ourse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04time\x18\x03 \x01(\t\"Z\n\x07Student\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tmatricula\x18\x02 \x01(\t\x12\r\n\x05idade\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x10\n\x08telefone\x18\x05 \x01(\t\"5\n\x11updateNameRequest\x12\x0f\n\x07oldName\x18\x01 \x01(\t\x12\x0f\n\x07newName\x18\x02 \x01(\t\"\x1b\n\x0bnameRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x1e\n\x0fGenericResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"4\n\x13\x61\x64\x64ProfessorRequest\x12\x1d\n\tprofessor\x18\x01 \x01(\x0b\x32\n.Professor\"2\n\x11professorResponse\x12\x1d\n\tprofessor\x18\x01 \x01(\x0b\x32\n.Professor\":\n\x19professorsGenericResponse\x12\x1d\n\tprofessor\x18\x01 \x03(\x0b\x32\n.Professor\"+\n\x10\x61\x64\x64\x43ourseRequest\x12\x17\n\x06\x63ourse\x18\x01 \x01(\x0b\x32\x07.Course\")\n\x0e\x63ourseResponse\x12\x17\n\x06\x63ourse\x18\x01 \x01(\x0b\x32\x07.Course\"1\n\x16\x63oursesGenericResponse\x12\x17\n\x06\x63ourse\x18\x01 \x03(\x0b\x32\x07.Course\".\n\x11\x61\x64\x64StudentRequest\x12\x19\n\x07student\x18\x01 \x01(\x0b\x32\x08.Student\",\n\x0fstudentResponse\x12\x19\n\x07student\x18\x01 \x01(\x0b\x32\x08.Student\"4\n\x17studentsGenericResponse\x12\x19\n\x07student\x18\x01 \x03(\x0b\x32\x08.Student\"\x07\n\x05\x45mpty2\xb9\x08\n\x10\x63lassroomManager\x12\x38\n\x0c\x61\x64\x64Professor\x12\x14.addProfessorRequest\x1a\x10.GenericResponse\"\x00\x12\x39\n\x0fupdateProfessor\x12\x12.updateNameRequest\x1a\x10.GenericResponse\"\x00\x12\x33\n\x0f\x64\x65leteProfessor\x12\x0c.nameRequest\x1a\x10.GenericResponse\"\x00\x12\x32\n\x0cgetProfessor\x12\x0c.nameRequest\x1a\x12.professorResponse\"\x00\x12\x35\n\rgetProfessors\x12\x06.Empty\x1a\x1a.professorsGenericResponse\"\x00\x12\x45\n\x17getProfessorsFromCourse\x12\x0c.nameRequest\x1a\x1a.professorsGenericResponse\"\x00\x12\x32\n\taddCourse\x12\x11.addCourseRequest\x1a\x10.GenericResponse\"\x00\x12\x36\n\x0cupdateCourse\x12\x12.updateNameRequest\x1a\x10.GenericResponse\"\x00\x12\x30\n\x0c\x64\x65leteCourse\x12\x0c.nameRequest\x1a\x10.GenericResponse\"\x00\x12,\n\tgetCourse\x12\x0c.nameRequest\x1a\x0f.courseResponse\"\x00\x12/\n\ngetCourses\x12\x06.Empty\x1a\x17.coursesGenericResponse\"\x00\x12\x42\n\x17getCoursesFromProfessor\x12\x0c.nameRequest\x1a\x17.coursesGenericResponse\"\x00\x12@\n\x15getCoursesFromStudent\x12\x0c.nameRequest\x1a\x17.coursesGenericResponse\"\x00\x12\x34\n\naddStudent\x12\x12.addStudentRequest\x1a\x10.GenericResponse\"\x00\x12\x37\n\rupdateStudent\x12\x12.updateNameRequest\x1a\x10.GenericResponse\"\x00\x12\x31\n\rdeleteStudent\x12\x0c.nameRequest\x1a\x10.GenericResponse\"\x00\x12.\n\ngetStudent\x12\x0c.nameRequest\x1a\x10.studentResponse\"\x00\x12\x31\n\x0bgetStudents\x12\x06.Empty\x1a\x18.studentsGenericResponse\"\x00\x12\x41\n\x15getStudentsFromCourse\x12\x0c.nameRequest\x1a\x18.studentsGenericResponse\"\x00\x62\x06proto3')
 
 
 
@@ -151,37 +151,37 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _PROFESSOR._serialized_start=34
-  _PROFESSOR._serialized_end=59
-  _COURSE._serialized_start=61
-  _COURSE._serialized_end=97
-  _STUDENT._serialized_start=99
-  _STUDENT._serialized_end=122
-  _UPDATENAMEREQUEST._serialized_start=124
-  _UPDATENAMEREQUEST._serialized_end=177
-  _NAMEREQUEST._serialized_start=179
-  _NAMEREQUEST._serialized_end=206
-  _GENERICRESPONSE._serialized_start=208
-  _GENERICRESPONSE._serialized_end=238
-  _ADDPROFESSORREQUEST._serialized_start=240
-  _ADDPROFESSORREQUEST._serialized_end=292
-  _PROFESSORRESPONSE._serialized_start=294
-  _PROFESSORRESPONSE._serialized_end=344
-  _PROFESSORSGENERICRESPONSE._serialized_start=346
-  _PROFESSORSGENERICRESPONSE._serialized_end=404
-  _ADDCOURSEREQUEST._serialized_start=406
-  _ADDCOURSEREQUEST._serialized_end=449
-  _COURSERESPONSE._serialized_start=451
-  _COURSERESPONSE._serialized_end=492
-  _COURSESGENERICRESPONSE._serialized_start=494
-  _COURSESGENERICRESPONSE._serialized_end=543
-  _ADDSTUDENTREQUEST._serialized_start=545
-  _ADDSTUDENTREQUEST._serialized_end=591
-  _STUDENTRESPONSE._serialized_start=593
-  _STUDENTRESPONSE._serialized_end=637
-  _STUDENTSGENERICRESPONSE._serialized_start=639
-  _STUDENTSGENERICRESPONSE._serialized_end=691
-  _EMPTY._serialized_start=693
-  _EMPTY._serialized_end=700
-  _CLASSROOMMANAGER._serialized_start=703
-  _CLASSROOMMANAGER._serialized_end=1784
+  _PROFESSOR._serialized_end=71
+  _COURSE._serialized_start=73
+  _COURSE._serialized_end=121
+  _STUDENT._serialized_start=123
+  _STUDENT._serialized_end=213
+  _UPDATENAMEREQUEST._serialized_start=215
+  _UPDATENAMEREQUEST._serialized_end=268
+  _NAMEREQUEST._serialized_start=270
+  _NAMEREQUEST._serialized_end=297
+  _GENERICRESPONSE._serialized_start=299
+  _GENERICRESPONSE._serialized_end=329
+  _ADDPROFESSORREQUEST._serialized_start=331
+  _ADDPROFESSORREQUEST._serialized_end=383
+  _PROFESSORRESPONSE._serialized_start=385
+  _PROFESSORRESPONSE._serialized_end=435
+  _PROFESSORSGENERICRESPONSE._serialized_start=437
+  _PROFESSORSGENERICRESPONSE._serialized_end=495
+  _ADDCOURSEREQUEST._serialized_start=497
+  _ADDCOURSEREQUEST._serialized_end=540
+  _COURSERESPONSE._serialized_start=542
+  _COURSERESPONSE._serialized_end=583
+  _COURSESGENERICRESPONSE._serialized_start=585
+  _COURSESGENERICRESPONSE._serialized_end=634
+  _ADDSTUDENTREQUEST._serialized_start=636
+  _ADDSTUDENTREQUEST._serialized_end=682
+  _STUDENTRESPONSE._serialized_start=684
+  _STUDENTRESPONSE._serialized_end=728
+  _STUDENTSGENERICRESPONSE._serialized_start=730
+  _STUDENTSGENERICRESPONSE._serialized_end=782
+  _EMPTY._serialized_start=784
+  _EMPTY._serialized_end=791
+  _CLASSROOMMANAGER._serialized_start=794
+  _CLASSROOMMANAGER._serialized_end=1875
 # @@protoc_insertion_point(module_scope)

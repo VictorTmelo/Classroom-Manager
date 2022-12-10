@@ -88,7 +88,7 @@ def get_professor_id_by_name(name):
 
 
 def get_professor_of_course(course_name):
-    course = get_course_by_name(course_name)
+    course = get_course(course_name)
     if course:
         course_id = course['id']
         professor_id = get_professor_id_of_course(course_id)
@@ -147,15 +147,6 @@ def delete_course(name):
     return False
 
 
-def get_course_by_name(course_name):
-    courses = get_courses()
-    for course in courses:
-        if course['nome'] == course_name:
-            return course
-
-    return False
-
-
 def get_course_by_id(course_id):
     courses = get_courses()
     for course in courses:
@@ -201,10 +192,10 @@ def get_courses_id_of_professor(professor_id):
     return courses_id
 
 
-def create_student(name):
+def create_student(name,age,email,phone):
     students = get_students()
     student_id = int(students[-1]['matricula']) + 1
-    student = {'nome': name, 'matricula': str(student_id)}
+    student = {'nome': name, 'matricula': str(student_id),"idade":age,"email":email,"telefone":phone}
     save_data_db('Alunos', student, 'post')
 
 
@@ -262,7 +253,7 @@ def get_student_id_by_name(name):
 
 def get_students_of_course(course_name):
     students = []
-    course = get_course_by_name(course_name)
+    course = get_course(course_name)
     if course:
         course_id = course['id']
         students_id = get_students_id_of_course(course_id)
