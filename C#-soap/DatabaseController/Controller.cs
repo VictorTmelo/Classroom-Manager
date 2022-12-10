@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace DatabaseController
 {
@@ -13,7 +14,7 @@ namespace DatabaseController
         static void Main(string[] args)
         {
             //Console.WriteLine(get_student_by_id("2017000009"));
-             Console.WriteLine(get_students_of_course("Estrutura de Dados"));
+             Console.WriteLine(delete_student("teste2"));
             //Console.WriteLine(string.Join(", ", get_courses_id_of_professor("1")));
             Console.Read();
         }
@@ -44,7 +45,34 @@ namespace DatabaseController
 
             return null;
         }
-        //TODO CREATE PROFESSOR
+
+        public static string create_professor(string name)
+        {
+            dynamic dados = data();
+            JObject parsedData = JObject.Parse(Convert.ToString(dados));
+            JArray professors = (JArray)dados["Professores"];
+
+ 
+            string professor_id = Convert.ToString(Convert.ToInt32(professors[professors.Count-1]["id"]) + 1);
+            Professor professor = new Professor();
+            professor.id = professor_id;
+            professor.nome = name;
+
+
+            professors.Add(JToken.FromObject(professor));
+
+            parsedData["Professores"] = professors;
+
+
+
+
+            System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+
+
+
+            return "Professor adicionado com sucesso!";
+
+        }
 
         public static Professor get_professor(string name)
         {
@@ -81,10 +109,47 @@ namespace DatabaseController
 
 
 
+        public static bool update_professor(string name,string new_name)
+        {
+            dynamic dados = data();
+            JObject parsedData = JObject.Parse(Convert.ToString(dados));
+            JArray professors = (JArray)dados["Professores"];
 
-        //TODO UPDATE PROFESSOR
 
-        //TODO DELETE PROFESSOR
+            var professor = professors.First(a => a["nome"].ToString().Equals(name));
+
+
+            professor["nome"] = new_name;
+            parsedData["Professores"] = professors;
+            System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+
+            return true;
+   
+
+        }
+
+        public static bool delete_professor(string name)
+        {
+            dynamic dados = data();
+            JObject parsedData = JObject.Parse(Convert.ToString(dados));
+            JArray professors = (JArray)dados["Professores"];
+
+            foreach(dynamic professor in professors)
+            {
+                if (professor["nome"] == name)
+                {
+                    professors.Remove(professor);
+                    parsedData["Professores"] = professors;
+                    System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+                    return true;
+                }
+            }
+                
+
+            return false;
+
+
+        }
 
         public static string get_professor_id_by_name(string name)
         {
@@ -133,7 +198,34 @@ namespace DatabaseController
             return professor_id;
         }
 
-        //TODO create_course
+        public static string create_course(string name,string horario)
+        {
+            dynamic dados = data();
+            JObject parsedData = JObject.Parse(Convert.ToString(dados));
+            JArray courses = (JArray)dados["Disciplinas"];
+
+
+            string course_id = Convert.ToString(Convert.ToInt32(courses[courses.Count - 1]["id"]) + 1);
+            Disciplina course = new Disciplina();
+            course.id = course_id;
+            course.nome = name;
+            course.horario = horario;
+
+
+            courses.Add(JToken.FromObject(course));
+
+            parsedData["Disciplinas"] = courses;
+
+
+
+
+            System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+
+
+
+            return "Disciplina adicionado com sucesso!";
+
+        }
 
         public static Disciplina get_course(string name)
         {
@@ -165,9 +257,47 @@ namespace DatabaseController
             return courses;
         }
 
-        //TODO UPDATE COURSE
+        public static bool update_course(string name, string new_name)
+        {
+            dynamic dados = data();
+            JObject parsedData = JObject.Parse(Convert.ToString(dados));
+            JArray courses = (JArray)dados["Disciplinas"];
 
-        //TODO DELETE COURSE
+
+            var course = courses.First(a => a["nome"].ToString().Equals(name));
+
+
+            course["nome"] = new_name;
+            parsedData["Disciplinas"] = courses;
+            System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+
+            return true;
+
+
+        }
+
+        public static bool delete_course(string name)
+        {
+            dynamic dados = data();
+            JObject parsedData = JObject.Parse(Convert.ToString(dados));
+            JArray courses = (JArray)dados["Disciplinas"];
+
+            foreach (dynamic course in courses)
+            {
+                if (course["nome"] == name)
+                {
+                    courses.Remove(course);
+                    parsedData["Disciplinas"] = courses;
+                    System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+                    return true;
+                }
+            }
+
+
+            return false;
+
+
+        }
 
         public static Disciplina get_course_by_id(string course_id)
         {
@@ -260,7 +390,33 @@ namespace DatabaseController
             return courses_id;
         }
 
-        //TODO CREATE STUDENT
+        public static string create_student(string name)
+        {
+            dynamic dados = data();
+            JObject parsedData = JObject.Parse(Convert.ToString(dados));
+            JArray alunos = (JArray)dados["Alunos"];
+
+
+            string aluno_id = Convert.ToString(Convert.ToInt32(alunos[alunos.Count - 1]["matricula"]) + 1);
+            Aluno student = new Aluno();
+            student.matricula = aluno_id;
+            student.nome = name;
+
+
+            alunos.Add(JToken.FromObject(student));
+
+            parsedData["Alunos"] = alunos;
+
+
+
+
+            System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+
+
+
+            return "Aluno adicionado com sucesso!";
+
+        }
 
         public static Aluno get_student(string name)
         {
@@ -293,11 +449,49 @@ namespace DatabaseController
 
             return students;
         }
-        
 
-        //TODO UPDATE STUDENT
+        public static bool update_student(string name, string new_name)
+        {
+            dynamic dados = data();
+            JObject parsedData = JObject.Parse(Convert.ToString(dados));
+            JArray students = (JArray)dados["Alunos"];
 
-        //TODO DELETE STUDENT
+
+            var student = students.First(a => a["nome"].ToString().Equals(name));
+
+
+            student["nome"] = new_name;
+            parsedData["Alunos"] = students;
+            System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+
+            return true;
+
+
+        }
+
+
+        public static bool delete_student(string name)
+        {
+            dynamic dados = data();
+            JObject parsedData = JObject.Parse(Convert.ToString(dados));
+            JArray students = (JArray)dados["Alunos"];
+
+            foreach (dynamic student in students)
+            {
+                if (student["nome"] == name)
+                {
+                    students.Remove(student);
+                    parsedData["Alunos"] = students;
+                    System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+                    return true;
+                }
+            }
+
+
+            return false;
+
+
+        }
 
         public static Aluno get_student_by_id(string id)
         {
