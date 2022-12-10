@@ -94,9 +94,9 @@ const getDisciplinaAluno1 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Victor Torres de Melo") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -122,9 +122,9 @@ const getDisciplinaAluno2 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Renato Vidal Moura") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -150,9 +150,9 @@ const getDisciplinaAluno3 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Davi Pereira") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -178,9 +178,9 @@ const getDisciplinaAluno4 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Gabriel de Oliveira") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -206,9 +206,9 @@ const getDisciplinaAluno5 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Maycon Bezerra Batista") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -234,9 +234,9 @@ const getDisciplinaAluno6 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Matias Santos Junior") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -262,9 +262,9 @@ const getDisciplinaAluno7 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Junior Fernandes Neto") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -290,9 +290,9 @@ const getDisciplinaAluno8 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Miguel Rocha da Silva") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -318,9 +318,9 @@ const getDisciplinaAluno9 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Arthur Sampaio") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -346,9 +346,9 @@ const getDisciplinaAluno10 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Gael Lopes Filho") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -374,9 +374,9 @@ const getDisciplinaAluno11 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Heitor Teles Saraiva") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -402,9 +402,9 @@ const getDisciplinaAluno12 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Helena Gomes") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -430,9 +430,9 @@ const getDisciplinaAluno13 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Alice Lima") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -458,9 +458,9 @@ const getDisciplinaAluno14 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Theo Borges") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -486,9 +486,9 @@ const getDisciplinaAluno15 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Laura Ulisses") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -514,9 +514,9 @@ const getDisciplinaAluno16 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Lara Santos") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -542,9 +542,9 @@ const getDisciplinaAluno17 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Livia Silva") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -570,9 +570,9 @@ const getDisciplinaAluno18 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Lorena Lima") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -598,9 +598,9 @@ const getDisciplinaAluno19 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Samuel Bola") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -626,9 +626,9 @@ const getDisciplinaAluno20 = () => {
 
   db.Alunos.forEach((aluno) => {
     if (aluno.nome == "Maria Alice") {
-       idAluno = aluno.matricula
+      idAluno = aluno.matricula;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -677,9 +677,9 @@ const getDisciplinaProfessor1 = () => {
 
   db.Professores.forEach((professor) => {
     if (professor.nome == "Nabor das Chagas") {
-       idProfessor = professor.id
+      idProfessor = professor.id;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -705,9 +705,9 @@ const getDisciplinaProfessor2 = () => {
 
   db.Professores.forEach((professor) => {
     if (professor.nome == "José Alzir Bruno") {
-       idProfessor = professor.id
+      idProfessor = professor.id;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -733,9 +733,9 @@ const getDisciplinaProfessor3 = () => {
 
   db.Professores.forEach((professor) => {
     if (professor.nome == "Ronaldo Gonçalves") {
-       idProfessor = professor.id
+      idProfessor = professor.id;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -761,9 +761,9 @@ const getDisciplinaProfessor4 = () => {
 
   db.Professores.forEach((professor) => {
     if (professor.nome == "Wilson Wagner") {
-       idProfessor = professor.id
+      idProfessor = professor.id;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -784,14 +784,14 @@ const getDisciplinaProfessor4 = () => {
   return disciplinas;
 };
 
-const getDisciplinaProfessor5= () => {
+const getDisciplinaProfessor5 = () => {
   let idProfessor;
 
   db.Professores.forEach((professor) => {
     if (professor.nome == "Caio Pontes") {
-       idProfessor = professor.id
+      idProfessor = professor.id;
     }
- })
+  });
 
   let idsDisciplinas = [];
 
@@ -1082,7 +1082,7 @@ const typeDefs = gql`
     getDadosDisciplinasAluno19: [GetDadosDisciplinasAluno19]
 
     getDadosDisciplinasAluno20: [GetDadosDisciplinasAluno20]
-    
+
     getDadosDisciplinasProfessor1: [GetDadosDisciplinasProfessor1]
 
     getDadosDisciplinasProfessor2: [GetDadosDisciplinasProfessor2]
@@ -1271,11 +1271,16 @@ const resolvers = {
     getDadosDisciplinasAluno18: () => Object.values(getDadosDisciplinasAluno18),
     getDadosDisciplinasAluno19: () => Object.values(getDadosDisciplinasAluno19),
     getDadosDisciplinasAluno20: () => Object.values(getDadosDisciplinasAluno20),
-    getDadosDisciplinasProfessor1: () => Object.values(getDadosDisciplinasProfessor1),
-    getDadosDisciplinasProfessor2: () => Object.values(getDadosDisciplinasProfessor2),
-    getDadosDisciplinasProfessor3: () => Object.values(getDadosDisciplinasProfessor3),
-    getDadosDisciplinasProfessor4: () => Object.values(getDadosDisciplinasProfessor4),
-    getDadosDisciplinasProfessor5: () => Object.values(getDadosDisciplinasProfessor5),
+    getDadosDisciplinasProfessor1: () =>
+      Object.values(getDadosDisciplinasProfessor1),
+    getDadosDisciplinasProfessor2: () =>
+      Object.values(getDadosDisciplinasProfessor2),
+    getDadosDisciplinasProfessor3: () =>
+      Object.values(getDadosDisciplinasProfessor3),
+    getDadosDisciplinasProfessor4: () =>
+      Object.values(getDadosDisciplinasProfessor4),
+    getDadosDisciplinasProfessor5: () =>
+      Object.values(getDadosDisciplinasProfessor5),
   },
 
   Mutation: {
