@@ -71,8 +71,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Disciplinas.cs" />
-    <Compile Include="Alunos.cs" />
+    <Compile Include="Disciplina.cs" />
+    <Compile Include="Aluno.cs" />
     <Compile Include="Professor.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -13,12 +13,12 @@ namespace DatabaseController
         static void Main(string[] args)
         {
             //Console.WriteLine(get_student_by_id("2017000009"));
-            Console.WriteLine(get_professor_id_by_name("Nabor das Chagas"));
+             Console.WriteLine(get_students_of_course("Estrutura de Dados"));
             //Console.WriteLine(string.Join(", ", get_courses_id_of_professor("1")));
             Console.Read();
         }
 
-        static dynamic data()
+        public static dynamic data()
         {
             using (StreamReader file = new StreamReader("C:\\Users\\Renato Vidal\\source\\repos\\SOAP\\database.json"))
             {
@@ -33,10 +33,10 @@ namespace DatabaseController
 
         public static Professor get_professor_by_id( string id)
         {
-            dynamic professors = get_professors();
-            foreach(dynamic professor in professors)
+            List<Professor> professors = get_professors();
+            foreach(Professor professor in professors)
             {
-                if(professor["id"] == id)
+                if(professor.id == id)
                 {
                     return professor;
                 }
@@ -86,7 +86,7 @@ namespace DatabaseController
 
         //TODO DELETE PROFESSOR
 
-        static string get_professor_id_by_name(string name)
+        public static string get_professor_id_by_name(string name)
         {
             List<Professor> professors = get_professors();
             foreach (Professor professor in professors)
@@ -100,83 +100,160 @@ namespace DatabaseController
             return "-1";
         }
 
-        //TODO get_professor_of_course
 
-        //TODO get_professor_id_of_course
+        public static Professor get_professor_of_course(string course_name)
+        {
+            Disciplina course = get_course(course_name);
+
+            if(course != null)
+            {
+                string course_id = course.id;
+                string professor_id = get_professor_id_of_course(course_id);
+                return get_professor_by_id(professor_id);
+            }
+
+            return null;
+
+        }
+
+
+        public static string get_professor_id_of_course(string course_id)
+        {
+            dynamic dados = data();
+            string professor_id = "-1";
+
+            foreach(dynamic c_id in dados["DisciplinasProfessores"])
+            {
+                if(c_id["idDisciplina"] == course_id)
+                {
+                    professor_id = c_id["idProfessor"];
+                }
+            }
+
+            return professor_id;
+        }
 
         //TODO create_course
 
-        static Object get_course(string name)
+        public static Disciplina get_course(string name)
         {
-            dynamic courses = get_courses();
-            foreach(dynamic course in courses)
+            List<Disciplina> courses = get_courses();
+            foreach(Disciplina course in courses)
             {
-                if(course["nome"] == name)
+                if(course.nome == name)
                 {
                     return course;
                 }
             }
-            return 0;
+            return null;
         }
 
-        static Object get_courses()
+        public static List<Disciplina> get_courses()
         {
-            dynamic dados = data();
+            dynamic dados = data()["Disciplinas"];
+            List<Disciplina> courses = new List<Disciplina>();
 
-            return dados["Disciplinas"];
+            foreach (dynamic dado in dados)
+            {
+                Disciplina d = new Disciplina();
+                d.id = dado["id"];
+                d.nome = dado["nome"];
+
+                courses.Add(d);
+            }
+
+            return courses;
         }
 
         //TODO UPDATE COURSE
 
         //TODO DELETE COURSE
 
-        static Object get_course_by_id(string course_id)
+        public static Disciplina get_course_by_id(string course_id)
         {
-            dynamic courses = get_courses();
+            List<Disciplina> courses = get_courses();
 
-            foreach(dynamic course in courses)
+            foreach(Disciplina course in courses)
             {
-                if(course["id"] == course_id)
+                if(course.id == course_id)
                 {
                     return course;
                 }
             }
 
-            return 0;
+            return null;
         }
 
-        /*static dynamic get_courses_of_student(string student_name)
+        public static List<Disciplina> get_courses_of_student(string student_name)
         {
+            List<Disciplina> courses = new List<Disciplina>();
+            string student_id = get_student_id_by_name(student_name);
 
+            if (student_id != "-1")
+            {
+               
+                List<string> courses_id = get_courses_id_of_student(student_id);
+                foreach (string course_id in courses_id)
+                {
+                    courses.Add(get_course_by_id(course_id));
+                }
+                return courses;
+            }
+
+            return null;
         }
 
-        static dynamic get_courses_id_of_student(string student_id)
+        public static List<string> get_courses_id_of_student(string student_id)
         {
+            {
+                dynamic dados = data();
+                List<string> courses_id = new List<string>();
 
+                foreach (dynamic c_id in dados["DisciplinasAlunos"])
+                {
+                    foreach (dynamic id in c_id["idAluno"])
+                    {
+                        if (id == student_id)
+                        {
+                            courses_id.Add(Convert.ToString(c_id["idDisciplina"]));
+                        }
+                    }
+                }
+
+                return courses_id;
+            }
         }
 
-        static dynamic get_courses_of_professor(string professor_name)
+        public static List<Disciplina> get_courses_of_professor(string professor_name)
         {
-            List<Object> courses = new List<Object>();
+            List<Disciplina> courses = new List<Disciplina>();
             string professor_id = get_professor_id_by_name(professor_name);
 
             if (professor_id != "-1")
             {
-                string course_id = get
+                List<string> courses_id = get_courses_id_of_professor(professor_id);
+                foreach(string course_id in courses_id)
+                {
+                    courses.Add(get_course_by_id(course_id));
+                }
+
+                return courses;
             }
 
-        }*/
+            return null;
 
-        static dynamic get_courses_id_of_professor(string professor_id)
+        }
+
+        public static List<string> get_courses_id_of_professor(string professor_id)
         {
             dynamic dados = data();
-            List<Object> courses_id = new List<Object>();
+            List<string> courses_id = new List<string>();
 
             foreach (dynamic c_id in dados["DisciplinasProfessores"])
             {
                 if(c_id["idProfessor"] == professor_id)
                 {
-                    courses_id.Add(c_id["idDisciplina"]); 
+                    courses_id.Add(Convert.ToString(c_id["idDisciplina"])); 
                 }
             }
 
@@ -185,52 +262,110 @@ namespace DatabaseController
 
         //TODO CREATE STUDENT
 
-        static Object get_student(string name)
+        public static Aluno get_student(string name)
         {
-            dynamic students = get_students();
+            List<Aluno> students = get_students();
 
-            foreach(dynamic student in students)
+            foreach(Aluno student in students)
             {
-                if(student["nome"] == name)
+                if(student.nome == name)
                 {
                     return student;
                 }
             }
 
-            return 0;
+            return null;
         }
 
-        static Object get_students()
+        public static List<Aluno> get_students()
         {
-            dynamic dados = data();
+            dynamic dados = data()["Alunos"];
+            List<Aluno> students = new List<Aluno>();
 
-            return dados["Alunos"];
+            foreach (dynamic dado in dados)
+            {
+                Aluno s = new Aluno();
+                s.matricula = dado["matricula"];
+                s.nome = dado["nome"];
+
+                students.Add(s);
+            }
+
+            return students;
         }
+        
 
         //TODO UPDATE STUDENT
 
         //TODO DELETE STUDENT
 
-        static Object get_student_by_id(string id)
+        public static Aluno get_student_by_id(string id)
         {
-            dynamic students = get_students();
+            List<Aluno> students = get_students();
 
-            foreach(dynamic student in students)
+            foreach(Aluno student in students)
             {
-                if(student["matricula"] == id)
+                if(student.matricula == id)
                 {
                     return student;
                 }
             }
 
-            return 0;
+            return null;
         }
 
-        static Object get_student_id_by_name()
+        public static string get_student_id_by_name(string name)
         {
-            dynamic students = get_students();
+            List<Aluno> students = get_students();
 
-            return students;
+            foreach(Aluno student in students)
+            {
+                if(student.nome == name)
+                {
+                    return student.matricula;
+                }
+            }
+
+            return "-1";
+        }
+
+        public static List<Aluno> get_students_of_course(string course_name)
+        {
+            List<Aluno> students = new List<Aluno>();
+            Disciplina course = get_course(course_name);
+
+            if(course != null)
+            {
+                string course_id = course.id;
+                List<string> students_id = get_students_id_of_course(course_id);
+                foreach (string student_id in students_id)
+                {
+                    students.Add(get_student_by_id(student_id));
+                }
+
+                return students;
+            }
+
+            return null;
+        }
+
+        public static List<string> get_students_id_of_course(string course_id)
+        {
+            dynamic dados = data();
+            List<string> students_id = new List<string>();
+
+            foreach (dynamic c_id in dados["DisciplinasAlunos"])
+            {
+                if (c_id["idDisciplina"] == course_id)
+                {
+                    foreach (string student_id in c_id["idAluno"])
+                    {
+                        students_id.Add(student_id);
+                    }
+                }
+            }
+
+            return students_id;
         }
 
 

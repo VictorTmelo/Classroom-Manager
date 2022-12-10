@@ -32,5 +32,11 @@ namespace SOAP
         {
             return DatabaseController.Controller.get_professor(name);
         }
+
+        [WebMethod]
+        public List<Aluno> tmp(string name)
+        {
+            return DatabaseController.Controller.get_students_of_course(name);
+        }
     }
 }
