@@ -11,17 +11,18 @@ namespace DatabaseController
 {
     public class Controller
     {
+        static string path = @"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\\database.json";
         static void Main(string[] args)
         {
             //Console.WriteLine(get_student_by_id("2017000009"));
-             Console.WriteLine(delete_student("teste2"));
+             Console.WriteLine(data());
             //Console.WriteLine(string.Join(", ", get_courses_id_of_professor("1")));
             Console.Read();
         }
 
         public static dynamic data()
         {
-            using (StreamReader file = new StreamReader("C:\\Users\\Renato Vidal\\source\\repos\\SOAP\\database.json"))
+            using (StreamReader file = new StreamReader(path))
             {
 
                 dynamic json = JsonConvert.DeserializeObject(file.ReadToEnd());
@@ -66,7 +67,7 @@ namespace DatabaseController
 
 
 
-            System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+            System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(parsedData));
 
 
 
@@ -121,7 +122,7 @@ namespace DatabaseController
 
             professor["nome"] = new_name;
             parsedData["Professores"] = professors;
-            System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+            System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(parsedData));
 
             return true;
    
@@ -140,7 +141,7 @@ namespace DatabaseController
                 {
                     professors.Remove(professor);
                     parsedData["Professores"] = professors;
-                    System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+                    System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(parsedData));
                     return true;
                 }
             }
@@ -219,7 +220,7 @@ namespace DatabaseController
 
 
 
-            System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+            System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(parsedData));
 
 
 
@@ -269,7 +270,7 @@ namespace DatabaseController
 
             course["nome"] = new_name;
             parsedData["Disciplinas"] = courses;
-            System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+            System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(parsedData));
 
             return true;
 
@@ -288,7 +289,7 @@ namespace DatabaseController
                 {
                     courses.Remove(course);
                     parsedData["Disciplinas"] = courses;
-                    System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+                    System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(parsedData));
                     return true;
                 }
             }
@@ -390,7 +391,7 @@ namespace DatabaseController
             return courses_id;
         }
 
-        public static string create_student(string name)
+        public static string create_student(string name, string idade, string email, string telefone)
         {
             dynamic dados = data();
             JObject parsedData = JObject.Parse(Convert.ToString(dados));
@@ -401,6 +402,9 @@ namespace DatabaseController
             Aluno student = new Aluno();
             student.matricula = aluno_id;
             student.nome = name;
+            student.idade = idade;
+            student.email = email;
+            student.telefone = telefone;
 
 
             alunos.Add(JToken.FromObject(student));
@@ -410,7 +414,7 @@ namespace DatabaseController
 
 
 
-            System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+            System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(parsedData));
 
 
 
@@ -443,6 +447,9 @@ namespace DatabaseController
                 Aluno s = new Aluno();
                 s.matricula = dado["matricula"];
                 s.nome = dado["nome"];
+                s.idade = dado["idade"];
+                s.email = dado["email"];
+                s.telefone = dado["telefone"];
 
                 students.Add(s);
             }
@@ -462,7 +469,7 @@ namespace DatabaseController
 
             student["nome"] = new_name;
             parsedData["Alunos"] = students;
-            System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+            System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(parsedData));
 
             return true;
 
@@ -482,7 +489,7 @@ namespace DatabaseController
                 {
                     students.Remove(student);
                     parsedData["Alunos"] = students;
-                    System.IO.File.WriteAllText(@"C:\\Users\\Renato Vidal\\source\\repos\\SOAP\database.json", JsonConvert.SerializeObject(parsedData));
+                    System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(parsedData));
                     return true;
                 }
             }

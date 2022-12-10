@@ -11,9 +11,15 @@ namespace DatabaseController
         public string nome { get; set; }
         public string matricula { get; set; }
 
+        public string idade { get; set; }
+
+        public string email { get; set; }
+
+        public string telefone { get; set; }
+
         public override string ToString()
         {
-            return String.Format("matricula: {0}, nome: {1}", matricula, nome);
+            return String.Format("nome: {0}, matricula: {1}, idade: {2}, email: {3}, telefone: {4}", nome, matricula, idade, email, telefone);
         }
     }
 }
