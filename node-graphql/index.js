@@ -1,7 +1,7 @@
 const { ApolloServer, gql } = require("apollo-server");
 const uuid = require("uuid/v4");
 const fs = require("fs");
-let data = fs.readFileSync("database.json");
+let data = fs.readFileSync("../database.json");
 var db = JSON.parse(data);
 
 const getAlunosDisciplina1 = () => {
@@ -22,7 +22,7 @@ const getAlunosDisciplina2 = () => {
     let idAlunos = [];
     for (let i = 0; i < db.DisciplinasAlunos[1].idAluno.length; i++) {
       const foundAluno = db.Alunos.find(
-        (aluno) => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i]
+        (aluno) => aluno.matricula === db.DisciplinasAlunos[1].idAluno[i]
       );
       idAlunos.push(foundAluno);
     }
@@ -35,7 +35,7 @@ const getAlunosDisciplina3 = () => {
     let idAlunos = [];
     for (let i = 0; i < db.DisciplinasAlunos[2].idAluno.length; i++) {
       const foundAluno = db.Alunos.find(
-        (aluno) => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i]
+        (aluno) => aluno.matricula === db.DisciplinasAlunos[2].idAluno[i]
       );
       idAlunos.push(foundAluno);
     }
@@ -48,7 +48,7 @@ const getAlunosDisciplina4 = () => {
     let idAlunos = [];
     for (let i = 0; i < db.DisciplinasAlunos[3].idAluno.length; i++) {
       const foundAluno = db.Alunos.find(
-        (aluno) => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i]
+        (aluno) => aluno.matricula === db.DisciplinasAlunos[3].idAluno[i]
       );
       idAlunos.push(foundAluno);
     }
@@ -61,7 +61,7 @@ const getAlunosDisciplina5 = () => {
     let idAlunos = [];
     for (let i = 0; i < db.DisciplinasAlunos[4].idAluno.length; i++) {
       const foundAluno = db.Alunos.find(
-        (aluno) => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i]
+        (aluno) => aluno.matricula === db.DisciplinasAlunos[4].idAluno[i]
       );
       idAlunos.push(foundAluno);
     }
@@ -74,7 +74,7 @@ const getAlunosDisciplina6 = () => {
     let idAlunos = [];
     for (let i = 0; i < db.DisciplinasAlunos[5].idAluno.length; i++) {
       const foundAluno = db.Alunos.find(
-        (aluno) => aluno.matricula === db.DisciplinasAlunos[0].idAluno[i]
+        (aluno) => aluno.matricula === db.DisciplinasAlunos[5].idAluno[i]
       );
       idAlunos.push(foundAluno);
     }
@@ -848,31 +848,49 @@ const typeDefs = gql`
   type GetAlunosDisciplina1 {
     nome: String!
     matricula: String!
+    idade: String!
+    email: String!
+    telefone: String!
   }
 
   type GetAlunosDisciplina2 {
     nome: String!
     matricula: String!
+    idade: String!
+    email: String!
+    telefone: String!
   }
 
   type GetAlunosDisciplina3 {
     nome: String!
     matricula: String!
+    idade: String!
+    email: String!
+    telefone: String!
   }
 
   type GetAlunosDisciplina4 {
     nome: String!
     matricula: String!
+    idade: String!
+    email: String!
+    telefone: String!
   }
 
   type GetAlunosDisciplina5 {
     nome: String!
     matricula: String!
+    idade: String!
+    email: String!
+    telefone: String!
   }
 
   type GetAlunosDisciplina6 {
     nome: String!
     matricula: String!
+    idade: String!
+    email: String!
+    telefone: String!
   }
 
   type GetDadosDisciplinasAluno1 {
