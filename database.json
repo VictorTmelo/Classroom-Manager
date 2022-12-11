@@ -24,17 +24,17 @@
   "Disciplinas": [
     {
       "id": "1",
-      "nome": "Computação Distribuída",
+      "nome": "Computacao Distribuida",
       "horario": "N24AB"
     },
     {
       "id": "2",
-      "nome": "Modelagem e Avaliação de Desempenho",
+      "nome": "Modelagem e Avaliacao de Desempenho",
       "horario": "N24CD"
     },
     {
       "id": "3",
-      "nome": "Segurança no Ciberespaço",
+      "nome": "Seguranca no Ciberespaco",
       "horario": "T24EF"
     },
     {
@@ -49,7 +49,7 @@
     },
     {
       "id": "6",
-      "nome": "Gerenciamento da Implantação de Sistemas",
+      "nome": "Gerenciamento da Implantacao de Sistemas",
       "horario": "N35AB"
     }
   ],
